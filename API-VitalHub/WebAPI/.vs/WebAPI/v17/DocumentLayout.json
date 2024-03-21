@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\controllers\\medicoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\medicoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\viewmodels\\medicoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\viewmodels\\medicoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\viewmodels\\pacienteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\viewmodels\\pacienteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\repositories\\medicorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\repositories\\medicorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\interfaces\\imedicorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\interfaces\\imedicorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\repositories\\pacienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\repositories\\pacienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\contexts\\vitalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\contexts\\vitalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\utils\\criptografia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\utils\\criptografia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\domains\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\domains\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\2023-3s-3ds-alunos\\api-vitalhub\\webapi\\webapi\\domains\\medico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\domains\\medico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PacientesController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\PacientesController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\PacientesController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\PacientesController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\PacientesController.cs",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAwwFcAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T19:47:49.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IMedicoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Interfaces\\IMedicoRepository.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Interfaces\\IMedicoRepository.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Interfaces\\IMedicoRepository.cs",
+              "RelativeToolTip": "WebAPI\\Interfaces\\IMedicoRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T19:47:09.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MedicoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Repositories\\MedicoRepository.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Repositories\\MedicoRepository.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Repositories\\MedicoRepository.cs",
+              "RelativeToolTip": "WebAPI\\Repositories\\MedicoRepository.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAQwDYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T19:46:29.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PacienteViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\ViewModels\\PacienteViewModel.cs",
+              "RelativeDocumentMoniker": "WebAPI\\ViewModels\\PacienteViewModel.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\ViewModels\\PacienteViewModel.cs",
+              "RelativeToolTip": "WebAPI\\ViewModels\\PacienteViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:45:17.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Domains\\Usuario.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Domains\\Usuario.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Domains\\Usuario.cs",
+              "RelativeToolTip": "WebAPI\\Domains\\Usuario.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:45:17.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MedicosController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\MedicosController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\MedicosController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\MedicosController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\MedicosController.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAADwvysAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:45:17.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MedicoViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\ViewModels\\MedicoViewModel.cs",
+              "RelativeDocumentMoniker": "WebAPI\\ViewModels\\MedicoViewModel.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\ViewModels\\MedicoViewModel.cs",
+              "RelativeToolTip": "WebAPI\\ViewModels\\MedicoViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:45:17.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PacienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Repositories\\PacienteRepository.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Repositories\\PacienteRepository.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Repositories\\PacienteRepository.cs",
+              "RelativeToolTip": "WebAPI\\Repositories\\PacienteRepository.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAqwD8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:45:17.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VitalContext.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Contexts\\VitalContext.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Contexts\\VitalContext.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Contexts\\VitalContext.cs",
+              "RelativeToolTip": "WebAPI\\Contexts\\VitalContext.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAuwCsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:45:38.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Medico.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Domains\\Medico.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Domains\\Medico.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Domains\\Medico.cs",
+              "RelativeToolTip": "WebAPI\\Domains\\Medico.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:45:17.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Criptografia.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Utils\\Criptografia.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Utils\\Criptografia.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Utils\\Criptografia.cs",
+              "RelativeToolTip": "WebAPI\\Utils\\Criptografia.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:45:17.684Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:45:17.532Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
