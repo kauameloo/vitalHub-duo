@@ -10,7 +10,7 @@ export const externalApiUrl = `https://viacep.com.br/ws/`;
 const portaApi = '4466'
 
 // declarar o ip da maquina
-const ip = '192.168.21.103'
+const ip = '192.168.19.157'
 
 //definir a url padrao
 const apiUrlLocal = `http://${ip}:${portaApi}/api`  
