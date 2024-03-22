@@ -3347,26 +3347,12 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\kaua-\\.nuget\\packages\\": {}
-=======
     "C:\\Users\\42351028856\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> 27042551636e721d6661bc1521ce7a634bc4a4a5
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj",
-      "projectName": "WebAPI",
-      "projectPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj",
-      "packagesPath": "C:\\Users\\kaua-\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\kaua-\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
       "projectUniqueName": "C:\\Users\\42351028856\\Desktop\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
       "projectPath": "C:\\Users\\42351028856\\Desktop\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj",
@@ -3379,7 +3365,6 @@
       "configFilePaths": [
         "C:\\Users\\42351028856\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 27042551636e721d6661bc1521ce7a634bc4a4a5
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3387,10 +3372,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-<<<<<<< HEAD
-=======
         "C:\\Program Files\\dotnet\\library-packs": {},
->>>>>>> 27042551636e721d6661bc1521ce7a634bc4a4a5
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3403,14 +3385,6 @@
         "warnAsError": [
           "NU1605"
         ]
-<<<<<<< HEAD
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-=======
->>>>>>> 27042551636e721d6661bc1521ce7a634bc4a4a5
       }
     },
     "frameworks": {
@@ -3463,8 +3437,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-<<<<<<< HEAD
-=======
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
@@ -3483,7 +3455,6 @@
             "version": "[7.0.15, 7.0.15]"
           }
         ],
->>>>>>> 27042551636e721d6661bc1521ce7a634bc4a4a5
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3492,15 +3463,17 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
-=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
->>>>>>> 27042551636e721d6661bc1521ce7a634bc4a4a5
       }
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\42351028856\\Desktop\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1902",
       "level": "Warning",
