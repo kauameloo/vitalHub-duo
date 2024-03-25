@@ -14,6 +14,19 @@ import { DoctorConsultation } from "../../screens/DoctorConsultation/DoctorConsu
 const bottomTab = createBottomTabNavigator();
 
 export const Main = () => {
+  const Header = () => {
+    async function profileLoad() {
+      const token = await userDecodeToken();
+
+      if (token) {
+        console.log(token);
+      }
+    }
+
+    useEffect(() => {
+      profileLoad();
+    }, []);
+  };
   return (
     <bottomTab.Navigator
       initialRouteName="PatientConsultation"

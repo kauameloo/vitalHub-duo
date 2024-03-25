@@ -14,8 +14,8 @@ import api from "../../services/Services";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const Login = ({ navigation }) => {
-  const [email, setEmail] = useState("kaua@email.com");
-  const [senha, setSenha] = useState("kaua123");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
   async function Login() {
     await api
@@ -32,6 +32,8 @@ export const Login = ({ navigation }) => {
       })
       .catch((error) => {
         console.log(error);
+        console.log(email);
+        console.log(senha);
       });
   }
 
@@ -51,7 +53,7 @@ export const Login = ({ navigation }) => {
         placeholder={"Usuário ou E-mail"}
         placeholderTextColor={"#49B3BA"}
         value={email}
-        onChange={(event) => setEmail(event.nativeEvent.text)}
+        onChangeText={(txt) => setEmail(txt)}
       />
 
       <Input
