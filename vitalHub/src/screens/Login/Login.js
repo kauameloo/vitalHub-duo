@@ -9,23 +9,30 @@ import { ButtonGoogle, ButtonNormal } from "../../components/Button/Button";
 import { StatusBar } from "react-native";
 import { useState } from "react";
 
-import api from '../../services/Services'
+import api from "../../services/Services";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const Login = ({ navigation }) => {
-  const [email, setEmail] = useState('')
-  const [senha, setSenha] = useState('')
+  const [email, setEmail] = useState("kaua@email.com");
+  const [senha, setSenha] = useState("kaua123");
 
   async function Login() {
-    await api.post('/Login', {
-      email: email,
-      senha: senha,
-    }).then(response => {
-      console.log(response)
-    }).catch(error => {
-      console.log(error);
-    })
+    await api
+      .post("/Login", {
+        email: email,
+        senha: senha,
+      })
+      .then(async (response) => {
+        await AsyncStorage.setItem("token", JSON.stringify(response.data));
 
-    //navigation.replace("Main")
+        navigation.replace("Main");
+
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
@@ -43,16 +50,14 @@ export const Login = ({ navigation }) => {
       <Input
         placeholder={"Usuário ou E-mail"}
         placeholderTextColor={"#49B3BA"}
-
         value={email}
-        onChange={event => setEmail(event.nativeEvent.text)}
+        onChange={(event) => setEmail(event.nativeEvent.text)}
       />
 
       <Input
         placeholder={"Senha"}
         placeholderTextColor={"#49B3BA"}
         secureTextEntry={true}
-
         value={senha}
         onChangeText={(txt) => setSenha(txt)}
       />
@@ -62,10 +67,7 @@ export const Login = ({ navigation }) => {
         onPress={() => navigation.navigate("ForgotPassword")}
       />
 
-      <ButtonNormal
-        onPress={(e) => Login()}
-        text={"Entrar"}
-      />
+      <ButtonNormal onPress={(e) => Login()} text={"Entrar"} />
 
       <ButtonGoogle
         onPress={() => navigation.replace("DoctorMain")}
