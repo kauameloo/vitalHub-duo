@@ -26,3 +26,7 @@ export const userDecodeToken = async () => {
     role: decoded.role,
   };
 };
+
+export const userLogoutToken = async () => {
+  const token = await AsyncStorage.removeItem("token");
+};

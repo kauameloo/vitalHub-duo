@@ -20,9 +20,10 @@ import {
   BlockedSmallButton,
   ButtonLarge,
 } from "../../components/Button/Button";
-import { userDecodeToken } from "../../utils/Auth";
+import { userDecodeToken, userLogoutToken } from "../../utils/Auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export const PatientProfile = () => {
+export const PatientProfile = ({ navigation }) => {
   const [cep, setCep] = useState("");
   const [logradouro, setLogradouro] = useState("");
   const [cidade, setCidade] = useState("");
@@ -64,7 +65,7 @@ export const PatientProfile = () => {
     profileLoad();
   }, []);
 
-//   Método de logout
+  //   Método de logout
 
   return (
     <ScrollContainer>
@@ -127,7 +128,13 @@ export const PatientProfile = () => {
 
         <ButtonLarge text={"Editar"} />
 
-        <BlockedSmallButton text={"Sair do app"} />
+        <BlockedSmallButton
+          text={"Sair do app"}
+          onPress={() => {
+            userLogoutToken();
+            navigation.replace("Login");
+          }}
+        />
       </Container>
     </ScrollContainer>
   );

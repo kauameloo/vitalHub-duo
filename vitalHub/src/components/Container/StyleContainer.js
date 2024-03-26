@@ -56,6 +56,7 @@ export const BoxDataHome = styled.SafeAreaView`
 
   /* width: 100%; */
   height: 55px;
+  /* border: 1px solid red; */
 
   align-items: center;
 
@@ -64,13 +65,24 @@ export const BoxDataHome = styled.SafeAreaView`
   margin-top: 26%; */
 `;
 
-export const BoxHome = styled.SafeAreaView`
-  /* width: 100%; */
+export const BoxFlex = styled.SafeAreaView`
+  width: 85%;
   height: 100%;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   gap: 10px;
+  /* border: 1px solid green; */
+  margin-left: 20px;
+`;
+
+export const BoxHome = styled.SafeAreaView`
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  /* gap: 10px; */
+  /* border: 1px solid black; */
 
   /* margin-bottom: 8%;
   margin-right: 36%; */
@@ -80,7 +92,7 @@ export const MoveIconBell = styled.SafeAreaView`
   width: 35px;
   height: 35px;
   /* margin-top: 8%; */
-  margin-left: 20px;
+  /* margin-left: 20px; */
 
   align-items: center;
 `;

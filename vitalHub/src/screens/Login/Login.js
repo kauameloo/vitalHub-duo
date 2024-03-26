@@ -12,6 +12,7 @@ import { useState } from "react";
 import api from "../../services/Services";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { userDecodeToken } from "../../utils/Auth";
 
 export const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -25,8 +26,12 @@ export const Login = ({ navigation }) => {
       })
       .then(async (response) => {
         await AsyncStorage.setItem("token", JSON.stringify(response.data));
-
-        navigation.replace("Main");
+        const token = await userDecodeToken();
+        if (token.role === "Medico") {
+          navigation.navigate("DoctorMain");
+        } else {
+          navigation.navigate("Main");
+        }
 
         console.log(response);
       })

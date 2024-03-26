@@ -1,6 +1,7 @@
 import { StatusBar } from "react-native";
 import {
   BoxDataHome,
+  BoxFlex,
   BoxHome,
   ButtonHomeContainer,
   Container,
@@ -15,7 +16,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Calendar from "../../components/Calendar/Calendar";
 
 import { FilterButton } from "../../components/Button/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "../../components/Cards/Cards";
 import { CancellationModal } from "../../components/CancellationModal/CancellationModal";
 import { AppointmentModal } from "../../components/AppointmentModal/AppointmentModal";
@@ -84,11 +85,13 @@ export const DoctorConsultation = ({ navigation }) => {
 
   const [showModalCancel, setShowModalCancel] = useState(false);
   const [showModalAppointment, setShowModalAppointment] = useState(false);
+  const [nome, setNome] = useState("");
 
   async function profileLoad() {
     const token = await userDecodeToken();
 
     if (token) {
+      setNome(token.name);
       console.log(token);
     }
   }
@@ -104,18 +107,19 @@ export const DoctorConsultation = ({ navigation }) => {
       <StatusBar translucent backgroundColor="transparent" />
       <Header>
         <BoxHome>
-          <ImagemHome source={require("../../assets/DoctorImage.png")} />
+          <BoxFlex>
+            <ImagemHome source={require("../../assets/DoctorImage.png")} />
 
-          <BoxDataHome>
-            <WelcomeTitle textTitle={"Bem vindo"} />
+            <BoxDataHome>
+              <WelcomeTitle textTitle={"Bem vindo"} />
 
-            <NameTitle textTitle={"Dr. Claudio"} />
-          </BoxDataHome>
+              <NameTitle textTitle={"Dr. " + nome} />
+            </BoxDataHome>
+          </BoxFlex>
+          <MoveIconBell>
+            <Ionicons name="notifications" size={25} color="white" />
+          </MoveIconBell>
         </BoxHome>
-
-        <MoveIconBell>
-          <Ionicons name="notifications" size={25} color="white" />
-        </MoveIconBell>
       </Header>
 
       <Calendar />

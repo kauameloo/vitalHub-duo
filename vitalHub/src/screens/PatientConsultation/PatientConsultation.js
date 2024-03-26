@@ -1,6 +1,7 @@
 import { StatusBar } from "react-native";
 import {
   BoxDataHome,
+  BoxFlex,
   BoxHome,
   ButtonHomeContainer,
   Container,
@@ -104,13 +105,15 @@ export const PatientConsultation = ({ navigation }) => {
         <StatusBar translucent backgroundColor="transparent" />
 
         <BoxHome>
-          <ImagemHome source={require("../../assets/PatientHomeImage.png")} />
+          <BoxFlex>
+            <ImagemHome source={require("../../assets/PatientHomeImage.png")} />
 
-          <BoxDataHome>
-            <WelcomeTitle textTitle={"Bem vindo"} />
+            <BoxDataHome>
+              <WelcomeTitle textTitle={"Bem vindo"} />
 
-            <NameTitle textTitle={nome} />
-          </BoxDataHome>
+              <NameTitle textTitle={nome} />
+            </BoxDataHome>
+          </BoxFlex>
           <MoveIconBell>
             <Ionicons name="notifications" size={25} color="white" />
           </MoveIconBell>
