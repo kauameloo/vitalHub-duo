@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\kaua-\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\2023-3S-3DS-Alunos\\API-VitalHub\\WebAPI\\WebAPI\\obj\\",
+=======
+    "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "projectName": "WebAPI",
+        "projectPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\kaua-\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\obj\\",
+>>>>>>> kallan
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kaua-\\AppData\\Roaming\\NuGet\\NuGet.Config",

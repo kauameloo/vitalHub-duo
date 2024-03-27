@@ -7,11 +7,39 @@ import { LinkAccount } from "../../components/Link/Link";
 
 import { ButtonGoogle, ButtonNormal } from "../../components/Button/Button";
 import { StatusBar } from "react-native";
+import { useState } from "react";
+
+import api from "../../services/Services";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { userDecodeToken } from "../../utils/Auth";
 
 export const Login = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
   async function Login() {
-    navigation.replace("Main")
+    await api
+      .post("/Login", {
+        email: email,
+        senha: senha,
+      })
+      .then(async (response) => {
+        await AsyncStorage.setItem("token", JSON.stringify(response.data));
+        const token = await userDecodeToken();
+        if (token.role === "Medico") {
+          navigation.navigate("DoctorMain");
+        } else {
+          navigation.navigate("Main");
+        }
+
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(email);
+        console.log(senha);
+      });
   }
 
   return (
@@ -29,12 +57,16 @@ export const Login = ({ navigation }) => {
       <Input
         placeholder={"Usuário ou E-mail"}
         placeholderTextColor={"#49B3BA"}
+        value={email}
+        onChangeText={(txt) => setEmail(txt)}
       />
 
       <Input
         placeholder={"Senha"}
         placeholderTextColor={"#49B3BA"}
         secureTextEntry={true}
+        value={senha}
+        onChangeText={(txt) => setSenha(txt)}
       />
 
       <LinkMedium
@@ -42,10 +74,7 @@ export const Login = ({ navigation }) => {
         onPress={() => navigation.navigate("ForgotPassword")}
       />
 
-      <ButtonNormal
-        onPress={(e) => Login()}
-        text={"Entrar"}
-      />
+      <ButtonNormal onPress={(e) => Login()} text={"Entrar"} />
 
       <ButtonGoogle
         onPress={() => navigation.replace("DoctorMain")}

@@ -7,6 +7,10 @@ namespace WebAPI.ViewModels
         public string? Rg { get; set; }
 
         public string? Cpf { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> kallan
         public DateTime? DataNascimento { get; set; }
 
         public string? Cep { get; set; }
@@ -15,6 +19,10 @@ namespace WebAPI.ViewModels
 
         public int? Numero { get; set; }
 
+<<<<<<< HEAD
+=======
+        public string? Cidade { get; set; }
+>>>>>>> kallan
 
         public string? Nome { get; set; }
 

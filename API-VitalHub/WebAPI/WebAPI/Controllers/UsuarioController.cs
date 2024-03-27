@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
+<<<<<<< HEAD
+=======
+using WebAPI.Domains;
+>>>>>>> kallan
 using WebAPI.Interfaces;
 using WebAPI.Repositories;
 using WebAPI.ViewModels;
@@ -31,6 +35,12 @@ namespace WebAPI.Controllers
 
             return Ok();
         }
+<<<<<<< HEAD
         
+=======
+
+        
+
+>>>>>>> kallan
     }
 }

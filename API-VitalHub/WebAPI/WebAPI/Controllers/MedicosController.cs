@@ -25,6 +25,16 @@ namespace WebAPI.Controllers
             return Ok(_medicoRepository.ListarTodos());
         }
 
+<<<<<<< HEAD
+=======
+        [HttpGet("BuscarPorId")]
+        public IActionResult GetById(Guid id)
+        {
+           
+            return Ok(_medicoRepository.BuscarPorId(id)); ;
+        }
+
+>>>>>>> kallan
         [Authorize]
         [HttpPut]
         public IActionResult AtualizarPerfil(MedicoViewModel medico)
@@ -38,7 +48,10 @@ namespace WebAPI.Controllers
         public IActionResult Post(MedicoViewModel medicoModel)
         {
             Usuario user = new Usuario();
+<<<<<<< HEAD
 
+=======
+>>>>>>> kallan
             user.Nome = medicoModel.Nome;
             user.Email = medicoModel.Email;
             user.TipoUsuarioId = medicoModel.IdTipoUsuario;
@@ -46,15 +59,38 @@ namespace WebAPI.Controllers
             user.Senha = medicoModel.Senha;
 
             user.Medico = new Medico();
+<<<<<<< HEAD
 
             user.Medico.Crm = medicoModel.Crm;
             user.Medico.EspecialidadeId = medicoModel.EspecialidadeId;
 
+=======
+            user.Medico.Crm = medicoModel.Crm;
+            user.Medico.EspecialidadeId = medicoModel.EspecialidadeId;
+
+
+            user.Medico.Endereco = new Endereco();
+            user.Medico.Endereco.Logradouro = medicoModel.Logradouro;
+            user.Medico.Endereco.Numero = medicoModel.Numero;
+            user.Medico.Endereco.Cep = medicoModel.Cep;
+
+>>>>>>> kallan
             _medicoRepository.Cadastrar(user);
 
             return Ok();
         }
 
+<<<<<<< HEAD
 
     }
 }
+=======
+        [HttpGet("BuscarPorIdClinica")]
+        public IActionResult GetByIdClinica(Guid id)
+        {
+
+            return Ok(_medicoRepository.ListarPorClinica(id)); ;
+        }
+    }
+}
+>>>>>>> kallan

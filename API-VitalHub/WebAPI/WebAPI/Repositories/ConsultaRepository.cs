@@ -11,6 +11,10 @@ namespace WebAPI.Repositories
     {
 
         public VitalContext ctx = new VitalContext();
+<<<<<<< HEAD
+=======
+
+>>>>>>> kallan
         public Consulta BuscarPorId(Guid id)
         {
             return ctx.Consultas.Find(id);
@@ -59,6 +63,10 @@ namespace WebAPI.Repositories
             List<Consulta> listaConsultas = ctx.Consultas
                 .Include(x => x.MedicoClinica)
                 .Include(x => x.Paciente)
+<<<<<<< HEAD
+=======
+                .Include(x => x.Situacao)
+>>>>>>> kallan
                 .Where(x => x.PacienteId != null && x.PacienteId == IdPaciente)
                 .ToList();
 

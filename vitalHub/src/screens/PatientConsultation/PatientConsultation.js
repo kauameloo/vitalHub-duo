@@ -1,162 +1,199 @@
-import { StatusBar } from "react-native"
-import { BoxDataHome, BoxHome, ButtonHomeContainer, Container, FlatContainer, MoveIconBell } from "../../components/Container/StyleContainer"
-import { Header } from "../../components/Header/StyledHeader"
-import { ImagemHome } from "../../components/Images/StyleImages"
-import { NameTitle, WelcomeTitle } from "../../components/Title/Title"
-import { Ionicons } from '@expo/vector-icons';
-import Calendar from "../../components/Calendar/Calendar"
+import { StatusBar } from "react-native";
+import {
+  BoxDataHome,
+  BoxFlex,
+  BoxHome,
+  ButtonHomeContainer,
+  Container,
+  FlatContainer,
+  MoveIconBell,
+} from "../../components/Container/StyleContainer";
+import { Header } from "../../components/Header/StyledHeader";
+import { ImagemHome } from "../../components/Images/StyleImages";
+import { NameTitle, WelcomeTitle } from "../../components/Title/Title";
+import { Ionicons } from "@expo/vector-icons";
+import Calendar from "../../components/Calendar/Calendar";
 
-import { FilterButton } from "../../components/Button/Button"
-import { useState } from "react"
-import { Card } from "../../components/Cards/Cards"
-import { CancellationModal } from "../../components/CancellationModal/CancellationModal"
+import { FilterButton } from "../../components/Button/Button";
+import { useEffect, useState } from "react";
+import { Card } from "../../components/Cards/Cards";
+import { CancellationModal } from "../../components/CancellationModal/CancellationModal";
 
-import { FontAwesome6 } from '@expo/vector-icons';
-import { Stethoscope } from "../../components/Stethoscope/StyleSthetoscope"
-import { ModalStethoscope } from "../../components/Stethoscope/ModalStethoscope"
-import { PatientAppointmentModal } from "../../components/PatientAppointmentModal/PatientAppointmentModal"
-
+import { FontAwesome6 } from "@expo/vector-icons";
+import { Stethoscope } from "../../components/Stethoscope/StyleSthetoscope";
+import { ModalStethoscope } from "../../components/Stethoscope/ModalStethoscope";
+import { PatientAppointmentModal } from "../../components/PatientAppointmentModal/PatientAppointmentModal";
+import { userDecodeToken } from "../../utils/Auth";
 
 export const PatientConsultation = ({ navigation }) => {
+  //STATE PARA O ESTADO DOS CARDS FLATLIST, BOTOES FILTRO
+  const [selected, setSelected] = useState({
+    agendadas: true,
+    realizadas: false,
+    canceladas: false,
+  });
 
-    //STATE PARA O ESTADO DOS CARDS FLATLIST, BOTOES FILTRO
-    const [selected, setSelected] = useState({
-        agendadas: true,
-        realizadas: false,
-        canceladas: false,
-    });
+  const image = require("../../assets/CardDoctorImage.png");
 
-    const image = require("../../assets/CardDoctorImage.png");
+  // CARD MOCADOS
 
-    // CARD MOCADOS
+  const dataItens = [
+    {
+      id: 1,
+      hour: "14:00",
+      image: image,
+      name: "Dr Claudio",
+      age: "22 anos",
+      routine: "Urgência",
+      status: "a",
+    },
+    {
+      id: 1,
+      hour: "14:00",
+      image: image,
+      name: "Dr josé",
+      age: "23 anos",
+      routine: "Urgência",
+      status: "r",
+    },
+  ];
 
-    const dataItens = [
-        {
-            id: 1,
-            hour: '14:00',
-            image: image,
-            name: 'Dr Claudio',
-            age: '22 anos',
-            routine: 'Urgência',
-            status: "a"
-        },
-        {
-            id: 1,
-            hour: '14:00',
-            image: image,
-            name: 'Dr josé',
-            age: '23 anos',
-            routine: 'Urgência',
-            status: "r"
-        }
-    ]
+  //FILTRO PARA CARD
 
-    //FILTRO PARA CARD
-
-    const Check = (data) => {
-        if (data.status === "a" && selected.agendadas) {
-            return true;
-        }
-        if (data.status === "r" && selected.realizadas) {
-            return true;
-        }
-        if (data.status === "c" && selected.canceladas) {
-            return true;
-        }
-        return false;
+  const Check = (data) => {
+    if (data.status === "a" && selected.agendadas) {
+      return true;
     }
+    if (data.status === "r" && selected.realizadas) {
+      return true;
+    }
+    if (data.status === "c" && selected.canceladas) {
+      return true;
+    }
+    return false;
+  };
 
-    const data = dataItens.filter(Check);
+  const data = dataItens.filter(Check);
 
-    // STATES PARA OS MODAIS
+  // STATES PARA OS MODAIS
 
-    const [showModalCancel, setShowModalCancel] = useState(false);
-    const [showModalAppointment, setShowModalAppointment] = useState(false);
-    const [showModalStethoscope, setShowModalStethoscope] = useState(false);
+  const [showModalCancel, setShowModalCancel] = useState(false);
+  const [showModalAppointment, setShowModalAppointment] = useState(false);
+  const [showModalStethoscope, setShowModalStethoscope] = useState(false);
 
-    const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [nome, setNome] = useState("");
 
-    // RETURN
+  async function profileLoad() {
+    const token = await userDecodeToken();
 
-    return (
+    if (token) {
+      setNome(token.name);
+      console.log(token);
+    }
+  }
 
-        <Container>
-            <Header>
+  useEffect(() => {
+    profileLoad();
+  }, []);
 
-                <StatusBar translucent backgroundColor="transparent" />
+  // RETURN
 
-                <BoxHome>
+  return (
+    <Container>
+      <Header>
+        <StatusBar translucent backgroundColor="transparent" />
 
-                    <ImagemHome source={require('../../assets/PatientHomeImage.png')} />
+        <BoxHome>
+          <BoxFlex>
+            <ImagemHome source={require("../../assets/PatientHomeImage.png")} />
 
-                    <BoxDataHome>
-                        <WelcomeTitle textTitle={"Bem vindo"} />
+            <BoxDataHome>
+              <WelcomeTitle textTitle={"Bem vindo"} />
 
-                        <NameTitle textTitle={"Richard Kosta"} />
-                    </BoxDataHome>
+              <NameTitle textTitle={nome} />
+            </BoxDataHome>
+          </BoxFlex>
+          <MoveIconBell>
+            <Ionicons name="notifications" size={25} color="white" />
+          </MoveIconBell>
+        </BoxHome>
+      </Header>
 
-                </BoxHome>
+      <Calendar />
 
+      <ButtonHomeContainer>
+        <FilterButton
+          onPress={() => {
+            setSelected({ agendadas: true });
+          }}
+          selected={selected.agendadas}
+          text={"Agendadas"}
+        />
 
-                <MoveIconBell>
-                    <Ionicons name="notifications" size={25} color="white" />
-                </MoveIconBell>
+        <FilterButton
+          onPress={() => {
+            setSelected({ realizadas: true });
+          }}
+          selected={selected.realizadas}
+          text={"Realizadas"}
+        />
 
-            </Header>
+        <FilterButton
+          onPress={() => {
+            setSelected({ canceladas: true });
+          }}
+          selected={selected.canceladas}
+          text={"Canceladas"}
+        />
+      </ButtonHomeContainer>
 
-            <Calendar />
+      <FlatContainer
+        data={data}
+        renderItem={({ item }) => (
+          <Card
+            navigation={navigation}
+            hour={item.hour}
+            name={item.name}
+            age={item.age}
+            routine={item.routine}
+            url={image}
+            status={item.status}
+            onPressCancel={() => setShowModalCancel(true)}
+            onPressAppointment={() => {
+              navigation.navigate("ViewPrescription");
+            }}
+            onPressAppointmentCard={() =>
+              setShowModal(item.status === "a" ? true : false)
+            }
+          />
+        )}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+      />
 
-            <ButtonHomeContainer>
+      <Stethoscope onPress={() => setShowModalStethoscope(true)}>
+        <FontAwesome6 name="stethoscope" size={32} color={"white"} />
+      </Stethoscope>
 
-                <FilterButton onPress={() => { setSelected({ agendadas: true }) }} selected={selected.agendadas} text={'Agendadas'} />
+      <CancellationModal
+        visible={showModalCancel}
+        setShowModalCancel={setShowModalCancel}
+      />
 
-                <FilterButton onPress={() => { setSelected({ realizadas: true }) }} selected={selected.realizadas} text={'Realizadas'} />
+      <ModalStethoscope
+        navigation={navigation}
+        visible={showModalStethoscope}
+        setShowModalStethoscope={setShowModalStethoscope}
+      />
 
-                <FilterButton onPress={() => { setSelected({ canceladas: true }) }} selected={selected.canceladas} text={'Canceladas'} />
+      <PatientAppointmentModal
+        navigation={navigation}
+        visible={showModal}
+        setShowModal={setShowModal}
+      />
 
-            </ButtonHomeContainer>
-
-            <FlatContainer
-                data={data}
-                renderItem={({ item }) =>
-                    <Card navigation={navigation} hour={item.hour} name={item.name} age={item.age} routine={item.routine} url={image} status={item.status} onPressCancel={() => setShowModalCancel(true)} onPressAppointment={() => { navigation.navigate("ViewPrescription") }} onPressAppointmentCard={() => setShowModal(item.status === 'a' ? true : false)} />}
-
-                keyExtractor={item => item.id}
-
-                showsVerticalScrollIndicator={false}
-
-            />
-
-            <Stethoscope onPress={() => setShowModalStethoscope(true)}>
-
-                <FontAwesome6
-                    name="stethoscope"
-                    size={32}
-                    color={"white"}
-                />
-
-            </Stethoscope>
-
-            <CancellationModal
-                visible={showModalCancel}
-                setShowModalCancel={setShowModalCancel}
-            />
-
-            <ModalStethoscope
-                navigation={navigation}
-                visible={showModalStethoscope}
-                setShowModalStethoscope={setShowModalStethoscope}
-            />
-
-            <PatientAppointmentModal
-                navigation={navigation}
-                visible={showModal}
-                setShowModal={setShowModal}
-            />
-
-            {/* <Main />  */}
-
-        </Container>
-
-    )
-}
+      {/* <Main />  */}
+    </Container>
+  );
+};

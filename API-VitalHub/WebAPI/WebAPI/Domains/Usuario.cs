@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ﻿
 using System;
+=======
+﻿using System;
+>>>>>>> kallan
 using System.Collections.Generic;
 
 namespace WebAPI.Domains;

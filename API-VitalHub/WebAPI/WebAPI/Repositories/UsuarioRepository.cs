@@ -25,8 +25,11 @@ namespace WebAPI.Repositories
 
         }
 
+<<<<<<< HEAD
         
 
+=======
+>>>>>>> kallan
         public Usuario BuscarPorEmailESenha(string email, string senha)
         {
            // var user = ctx.Usuarios.FirstOrDefault
