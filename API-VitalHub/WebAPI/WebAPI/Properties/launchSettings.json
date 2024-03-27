@@ -17,8 +17,13 @@
 <<<<<<< HEAD
       "applicationUrl": "http://192.168.19.111:4466",
 =======
+<<<<<<< HEAD
       "applicationUrl": "http://172.16.39.126:4466",
 >>>>>>> kallan
+=======
+      "applicationUrl": "http://172.16.39.111:4466", //ip da máquina que está a API
+>>>>>>> 27042551636e721d6661bc1521ce7a634bc4a4a5
+>>>>>>> 393201693770729442272a75e6b2ff5c28bb8750
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

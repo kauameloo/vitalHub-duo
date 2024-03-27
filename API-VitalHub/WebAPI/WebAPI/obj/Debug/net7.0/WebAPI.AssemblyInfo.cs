@@ -15,10 +15,14 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80acf84ffb5f6a7486444f20f763d9ccdf4a6259")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5732250fb5ddd0712bd5cff9b4afb20afe5e989a")]
 >>>>>>> kallan
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+924b0ca86ebce2e4b761ffeb91be6207303c5b9e")]
+>>>>>>> 393201693770729442272a75e6b2ff5c28bb8750
 [assembly: System.Reflection.AssemblyProductAttribute("WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

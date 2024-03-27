@@ -10,18 +10,26 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebAPI
 build_property.RootNamespace = WebAPI
 <<<<<<< HEAD
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\kaua-\OneDrive\Área de Trabalho\dev\SENAI\2023-3S-3DS-Alunos\API-VitalHub\WebAPI\WebAPI\
 =======
 build_property.ProjectDir = C:\Users\kaua-\OneDrive\Área de Trabalho\dev\SENAI\vitalHub-duo\API-VitalHub\WebAPI\WebAPI\
 >>>>>>> kallan
+=======
+build_property.ProjectDir = C:\Users\42351028856\Desktop\vitalHub-duo\API-VitalHub\WebAPI\WebAPI\
+>>>>>>> 393201693770729442272a75e6b2ff5c28bb8750
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 <<<<<<< HEAD
+<<<<<<< HEAD
 build_property.MSBuildProjectDirectory = C:\Users\kaua-\OneDrive\Área de Trabalho\dev\SENAI\2023-3S-3DS-Alunos\API-VitalHub\WebAPI\WebAPI
 =======
 build_property.MSBuildProjectDirectory = C:\Users\kaua-\OneDrive\Área de Trabalho\dev\SENAI\vitalHub-duo\API-VitalHub\WebAPI\WebAPI
 >>>>>>> kallan
+=======
+build_property.MSBuildProjectDirectory = C:\Users\42351028856\Desktop\vitalHub-duo\API-VitalHub\WebAPI\WebAPI
+>>>>>>> 393201693770729442272a75e6b2ff5c28bb8750
 build_property._RazorSourceGeneratorDebug = 
