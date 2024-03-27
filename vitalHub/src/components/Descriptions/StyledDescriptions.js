@@ -117,6 +117,7 @@ export const DoctorArea = styled(DescripritionForgot)`
 
 export const LocalizationText = styled(DoctorArea)`
   font-family: Quicksand_600SemiBold;
+  width: 60%;
 `;
 
 export const RoutineTextCard = styled(AgeTextCard)`
