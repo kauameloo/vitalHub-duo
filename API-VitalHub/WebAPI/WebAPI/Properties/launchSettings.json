@@ -14,7 +14,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://192.168.19.157:4466", //ip da máquina que está a API 
+      "applicationUrl": "http://172.16.39.126:4466",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
