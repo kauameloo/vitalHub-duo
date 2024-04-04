@@ -4,10 +4,7 @@
     "slug": "vitalHub",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/blue-heart.svg",
-    "notification": {
-      "icon": "./assets/blue-heart.svg"
-    },
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",

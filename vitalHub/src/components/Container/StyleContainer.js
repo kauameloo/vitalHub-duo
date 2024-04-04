@@ -54,45 +54,29 @@ export const BoxDescription = styled.SafeAreaView`
 export const BoxDataHome = styled.SafeAreaView`
   flex-direction: column;
 
-  /* width: 100%; */
+  width: 120px;
   height: 55px;
-  /* border: 1px solid red; */
 
   align-items: center;
 
-  /* margin-left: 10px;
+  margin-left: 10px;
 
-  margin-top: 26%; */
-`;
-
-export const BoxFlex = styled.SafeAreaView`
-  width: 85%;
-  height: 100%;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  /* border: 1px solid green; */
-  margin-left: 20px;
+  margin-top: 26%;
 `;
 
 export const BoxHome = styled.SafeAreaView`
-  width: 100%;
+  width: 200px;
   height: 100%;
   flex-direction: row;
-  /* justify-content: center; */
-  align-items: center;
-  /* gap: 10px; */
-  /* border: 1px solid black; */
 
-  /* margin-bottom: 8%;
-  margin-right: 36%; */
+  margin-bottom: 8%;
+  margin-right: 36%;
 `;
 
 export const MoveIconBell = styled.SafeAreaView`
   width: 35px;
   height: 35px;
-  /* margin-top: 8%; */
-  /* margin-left: 20px; */
+  margin-top: 8%;
 
   align-items: center;
 `;

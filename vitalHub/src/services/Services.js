@@ -1,21 +1,21 @@
 import axios from "axios";
 
-export const externalApiUrl = `https://viacep.com.br/ws/`;
+// export const externalApiUrl = `https://viacep.com.br/ws/`;
 
-// const api = axios.create({
+// export const api = axios.create({
 //   baseURL: externalApiUrl,
 // });
 
-// declarar  a porta da api
+//declarar portaApi
 const portaApi = "4466";
 
-// declarar o ip da maquina
+//declarar ip da máquina
 const ip = "172.16.39.126";
 
 //definir a url padrao
 const apiUrlLocal = `http://${ip}:${portaApi}/api`;
 
-//trazer configurações da axios
+//trazer configurações do axios
 const api = axios.create({
   baseURL: apiUrlLocal,
 });

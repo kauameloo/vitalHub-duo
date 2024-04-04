@@ -60,8 +60,9 @@ namespace WebAPI.Repositories
         {
             List<Consulta> listaConsultas = ctx.Consultas
                 .Include(x => x.MedicoClinica!.Medico!.IdNavigation)
+                .Include(x => x.MedicoClinica!.Medico!.Especialidade)
+                .Include(x => x.Paciente)
                 .Include(x => x.Situacao)
-                .Include(x => x.Prioridade)
                 .Where(x => x.PacienteId != null && x.PacienteId == IdPaciente)
                 .ToList();
 
@@ -70,7 +71,7 @@ namespace WebAPI.Repositories
 
         public List<Consulta> ListarTodos()
         {
-            return ctx.Consultas.ToList();
+            return ctx.Consultas.Include(x => x.Situacao).ToList();
         }
     }
 }

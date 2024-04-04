@@ -1,7 +1,6 @@
 import { StatusBar } from "react-native";
 import {
   BoxDataHome,
-  BoxFlex,
   BoxHome,
   ButtonHomeContainer,
   Container,
@@ -23,57 +22,141 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import { Stethoscope } from "../../components/Stethoscope/StyleSthetoscope";
 import { ModalStethoscope } from "../../components/Stethoscope/ModalStethoscope";
 import { PatientAppointmentModal } from "../../components/PatientAppointmentModal/PatientAppointmentModal";
-import { userDecodeToken } from "../../utils/Auth";
+import { tokenClean, userDecodeToken } from "../../utils/Auth";
+
+import api from "../../services/Services";
+import moment from "moment";
 
 export const PatientConsultation = ({ navigation }) => {
+  // Criar o state para receber a lista de consultas (Array)
+  const [consultaLista, setConsultaLista] = useState([]); // vazio no inicio
+
+  const [dataConsulta, setDataConsulta] = useState(""); // vazio no inicio
+
+  const [token, setToken] = useState([]);
+
+  const [consultaSelecionada, setConsultaSelecionada] = useState(null);
+
+  //Criar a função para obter a lista de consultas da api e setar no state
+
+  function MostrarModal(modal, consulta) {
+    setConsultaSelecionada(consulta);
+    if (modal == "cancelar") {
+      setShowModalCancel(true);
+    } else if (modal == "localization") {
+      setShowModal(selected === "Agendadas" ? true : false);
+    } else {
+      console.log("asa");
+    }
+  }
+
+  async function ListarConsultas() {
+    console.log(
+      `/Pacientes/BuscarPorData?data=${dataConsulta}&id=${token.idUsuario}`
+    );
+    await api
+      .get(
+        `/Pacientes/BuscarPorData?data=${dataConsulta}&id=${token.idUsuario}`
+      )
+      .then((response) => {
+        setConsultaLista(response.data);
+        console.log(consultaLista);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  // async function GetConsultas() {
+  //     try {
+
+  //         const token = await tokenClean();
+
+  //         if (token) {
+
+  //             const response = await api.get('/Consultas', {
+  //                 headers: {
+  //                     Authorization: `Bearer ${token}`
+  //                 }
+  //             });
+
+  //             setConsultaLista(response.data);
+
+  //             // console.log(response.data);
+
+  //         } else {
+  //             console.log("Token não encontrado.");
+  //         }
+  //     } catch (error) {
+  //         console.log(error);
+  //     }
+  // }
+
+  async function profileLoad() {
+    const token = await userDecodeToken();
+
+    if (token) {
+      console.log(token);
+      setToken(token);
+
+      setDataConsulta(moment().format("YYYY-MM-DD"));
+    }
+  }
+
   //STATE PARA O ESTADO DOS CARDS FLATLIST, BOTOES FILTRO
   const [selected, setSelected] = useState({
-    agendadas: true,
-    realizadas: false,
-    canceladas: false,
+    agendadas: "Agendadas",
+    realizadas: "Realizada",
+    canceladas: "Cancelada",
   });
 
   const image = require("../../assets/CardDoctorImage.png");
 
   // CARD MOCADOS
 
-  const dataItens = [
-    {
-      id: 1,
-      hour: "14:00",
-      image: image,
-      name: "Dr Claudio",
-      age: "22 anos",
-      routine: "Urgência",
-      status: "a",
-    },
-    {
-      id: 1,
-      hour: "14:00",
-      image: image,
-      name: "Dr josé",
-      age: "23 anos",
-      routine: "Urgência",
-      status: "r",
-    },
-  ];
+  // const dataItens = [
+  //     {
+  //         id: 1,
+  //         hour: '14:00',
+  //         image: image,
+  //         name: 'Dr Claudio',
+  //         age: '22 anos',
+  //         routine: 'Urgência',
+  //         status: "a"
+  //     },
+  //     {
+  //         id: 1,
+  //         hour: '14:00',
+  //         image: image,
+  //         name: 'Dr josé',
+  //         age: '23 anos',
+  //         routine: 'Urgência',
+  //         status: "r"
+  //     }
+  // ]
 
   //FILTRO PARA CARD
 
-  const Check = (data) => {
-    if (data.status === "a" && selected.agendadas) {
+  const Check = (consultaLista) => {
+    if (consultaLista.situacao.situacao === "Agendadas" && selected.agendadas) {
       return true;
     }
-    if (data.status === "r" && selected.realizadas) {
+    if (
+      consultaLista.situacao.situacao === "Realizada" &&
+      selected.realizadas
+    ) {
       return true;
     }
-    if (data.status === "c" && selected.canceladas) {
+    if (
+      consultaLista.situacao.situacao === "Cancelada" &&
+      selected.canceladas
+    ) {
       return true;
     }
     return false;
   };
 
-  const data = dataItens.filter(Check);
+  const data = consultaLista.filter(Check);
 
   // STATES PARA OS MODAIS
 
@@ -82,22 +165,21 @@ export const PatientConsultation = ({ navigation }) => {
   const [showModalStethoscope, setShowModalStethoscope] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
-  const [nome, setNome] = useState("");
 
-  async function profileLoad() {
-    const token = await userDecodeToken();
-
-    if (token) {
-      setNome(token.name);
-      console.log(token);
-    }
-  }
+  // RETURN
 
   useEffect(() => {
     profileLoad();
+    setSelected("Agendadas");
+    // GetConsultas()
   }, []);
 
-  // RETURN
+  useEffect(() => {
+    if (dataConsulta != "") {
+      ListarConsultas();
+    }
+    console.log(dataConsulta);
+  }, [dataConsulta]);
 
   return (
     <Container>
@@ -105,74 +187,92 @@ export const PatientConsultation = ({ navigation }) => {
         <StatusBar translucent backgroundColor="transparent" />
 
         <BoxHome>
-          <BoxFlex>
-            <ImagemHome source={require("../../assets/PatientHomeImage.png")} />
+          <ImagemHome source={require("../../assets/PatientHomeImage.png")} />
 
-            <BoxDataHome>
-              <WelcomeTitle textTitle={"Bem vindo"} />
+          <BoxDataHome>
+            <WelcomeTitle textTitle={"Bem vindo"} />
 
-              <NameTitle textTitle={nome} />
-            </BoxDataHome>
-          </BoxFlex>
-          <MoveIconBell>
-            <Ionicons name="notifications" size={25} color="white" />
-          </MoveIconBell>
+            <NameTitle textTitle={token.name} />
+          </BoxDataHome>
         </BoxHome>
+
+        <MoveIconBell>
+          <Ionicons name="notifications" size={25} color="white" />
+        </MoveIconBell>
       </Header>
 
-      <Calendar />
+      <Calendar setDataConsulta={setDataConsulta} />
 
       <ButtonHomeContainer>
         <FilterButton
           onPress={() => {
-            setSelected({ agendadas: true });
+            setSelected("Agendadas");
           }}
-          selected={selected.agendadas}
+          selected={selected === "Agendadas" ? true : false}
           text={"Agendadas"}
         />
+        {/* <FilterButton onPress={() => { setSelected({ agendadas: true }) }} selected={selected.agendadas} text={'Agendadas'} /> */}
 
         <FilterButton
           onPress={() => {
-            setSelected({ realizadas: true });
+            setSelected("Realizada");
           }}
-          selected={selected.realizadas}
+          selected={selected === "Realizada" ? true : false}
           text={"Realizadas"}
         />
 
         <FilterButton
           onPress={() => {
-            setSelected({ canceladas: true });
+            setSelected("Cancelada");
           }}
-          selected={selected.canceladas}
+          selected={selected === "Cancelada" ? true : false}
           text={"Canceladas"}
         />
       </ButtonHomeContainer>
 
       <FlatContainer
-        data={data}
-        renderItem={({ item }) => (
-          <Card
-            navigation={navigation}
-            hour={item.hour}
-            name={item.name}
-            age={item.age}
-            routine={item.routine}
-            url={image}
-            status={item.status}
-            onPressCancel={() => setShowModalCancel(true)}
-            onPressAppointment={() => {
-              navigation.navigate("ViewPrescription");
-            }}
-            onPressAppointmentCard={() =>
-              setShowModal(item.status === "a" ? true : false)
-            }
-          />
-        )}
+        data={consultaLista}
+        renderItem={({ item }) =>
+          // item.situacao == selected
+          item.situacao.situacao == selected && (
+            <Card
+              navigation={navigation}
+              dataConsulta={item.dataConsulta}
+              hour={"14:00"}
+              name={item.medicoClinica.medico.idNavigation.nome}
+              age={`CRM: ${item.medicoClinica.medico.crm}`}
+              routine={
+                item.prioridade == "1"
+                  ? "Rotina"
+                  : item.prioridade == "2"
+                  ? "Exame"
+                  : "Urgência"
+              }
+              url={image}
+              status={item.situacao.situacao}
+              // onPressCancel={() => setShowModalCancel(true)}
+              // onPressAppointment={() => { navigation.navigate("ViewPrescription") }}
+              // onPressAppointmentCard={() => setShowModal(item.situacao.situacao === 'Agendada' ? true : false)}
+
+              onPressCancel={() => {
+                MostrarModal("cancelar", item);
+              }}
+              onPressAppointmentCard={() => {
+                MostrarModal("localization", item);
+                console.log(consultaSelecionada);
+              }}
+            />
+          )
+        }
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
       />
 
-      <Stethoscope onPress={() => setShowModalStethoscope(true)}>
+      <Stethoscope
+        onPress={() => {
+          setShowModalStethoscope(true);
+        }}
+      >
         <FontAwesome6 name="stethoscope" size={32} color={"white"} />
       </Stethoscope>
 
@@ -188,7 +288,9 @@ export const PatientConsultation = ({ navigation }) => {
       />
 
       <PatientAppointmentModal
+        consulta={consultaSelecionada}
         navigation={navigation}
+        doctorData={consultaSelecionada}
         visible={showModal}
         setShowModal={setShowModal}
       />

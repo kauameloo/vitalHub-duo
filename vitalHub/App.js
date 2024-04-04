@@ -33,7 +33,9 @@ import Camera from "./src/components/Camera/Camera";
 
 const Stack = createNativeStackNavigator();
 
+
 export default function App() {
+
   let [fontsLoaded, fontError] = useFonts({
     MontserratAlternates_500Medium,
     MontserratAlternates_600SemiBold,
@@ -57,7 +59,7 @@ export default function App() {
       <StatusBar
         translucent
         backgroundColor="transparent"
-        // barStyle="light-content"
+        barStyle="light-content"
       />
 
       <Stack.Navigator
@@ -65,6 +67,7 @@ export default function App() {
           headerShown: false,
         }}
       >
+        
         <Stack.Screen
           name="Splash"
           component={Splash}
@@ -77,15 +80,23 @@ export default function App() {
           options={{ title: "Login" }}
         />
 
-        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen
+          name="Main"
+          component={Main}
+        />
 
-        <Stack.Screen name="DoctorMain" component={DoctorMain} />
+        <Stack.Screen
+          name="DoctorMain"
+          component={DoctorMain}
+        />
+
 
         {/* <Stack.Screen
           name="Navegação"
           component={Navegacao}
           options={{ title: "Navegação" }}
         /> */}
+
 
         <Stack.Screen
           name="ForgotPassword"

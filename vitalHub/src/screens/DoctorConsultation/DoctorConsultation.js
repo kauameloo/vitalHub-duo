@@ -1,7 +1,6 @@
 import { StatusBar } from "react-native";
 import {
   BoxDataHome,
-  BoxFlex,
   BoxHome,
   ButtonHomeContainer,
   Container,
@@ -20,85 +19,158 @@ import { useEffect, useState } from "react";
 import { Card } from "../../components/Cards/Cards";
 import { CancellationModal } from "../../components/CancellationModal/CancellationModal";
 import { AppointmentModal } from "../../components/AppointmentModal/AppointmentModal";
-import { userDecodeToken } from "../../utils/Auth";
+import { tokenClean, userDecodeToken } from "../../utils/Auth";
+import api from "../../services/Services";
+import moment from "moment";
 
 export const DoctorConsultation = ({ navigation }) => {
-  //STATE PARA O ESTADO DOS CARDS FLATLIST, BOTOES FILTRO
-  const [selected, setSelected] = useState({
-    agendadas: true,
-    realizadas: false,
-    canceladas: false,
-  });
+  const [dataConsulta, setDataConsulta] = useState(""); // vazio no inicio
 
-  const image = require("../../assets/ImageCard.png");
+  // Criar o state para receber a lista de consultas (Array)
+  const [consultaLista, setConsultaLista] = useState([]); // vazio no inicio
 
-  // CARD MOCADOS
+  const [token, setToken] = useState({});
 
-  const dataItens = [
-    {
-      id: 1,
-      hour: "14:00",
-      image: image,
-      name: "Niccole Sarga",
-      age: "22 anos",
-      routine: "Rotina",
-      status: "r",
-    },
-    {
-      id: 2,
-      hour: "15:00",
-      image: image,
-      name: "Richard Kosta",
-      age: "28 anos",
-      routine: "Urgência",
-      status: "a",
-    },
-    {
-      id: 3,
-      hour: "17:00",
-      image: image,
-      name: "Neymar Jr",
-      age: "28 anos",
-      routine: "Rotina",
-      status: "c",
-    },
-  ];
+  const [consultaSelecionada, setConsultaSelecionada] = useState([]);
 
-  //FILTRO PARA CARD
+  const dataAtual = new Date();
 
-  const Check = (data) => {
-    if (data.status === "a" && selected.agendadas) {
-      return true;
+  function MostrarModal(modal, consulta) {
+    setConsultaSelecionada(consulta);
+    if (modal == "cancelar") {
+      setShowModalCancel(true);
+    } else if (modal == "prontuario") {
+      setShowModalAppointment(selected === "Agendadas" ? true : false);
+    } else {
+      console.log("asa");
     }
-    if (data.status === "r" && selected.realizadas) {
-      return true;
-    }
-    if (data.status === "c" && selected.canceladas) {
-      return true;
-    }
-    return false;
-  };
+  }
 
-  const data = dataItens.filter(Check);
-
-  // STATES PARA OS MODAIS
-
-  const [showModalCancel, setShowModalCancel] = useState(false);
-  const [showModalAppointment, setShowModalAppointment] = useState(false);
-  const [nome, setNome] = useState("");
+  async function ListarConsultas() {
+    // console.log(`/Medicos/BuscarPorData?data=${dataConsulta}&id=${token.idUsuario}`);
+    await api
+      .get(`/Medicos/BuscarPorData?data=${dataConsulta}&id=${token.idUsuario}`)
+      .then((response) => {
+        setConsultaLista(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   async function profileLoad() {
     const token = await userDecodeToken();
 
     if (token) {
-      setNome(token.name);
       console.log(token);
+      setToken(token);
+
+      setDataConsulta(moment().format("YYYY-MM-DD"));
     }
   }
 
+  // async function GetConsultas() {
+  //     try {
+
+  //         const token = await tokenClean();
+
+  //         if (token) {
+
+  //             const response = await api.get('/Consultas', {
+  //                 headers: {
+  //                     Authorization: `Bearer ${token}`
+  //                 }
+  //             });
+
+  //             setConsultaLista(response.data);
+
+  //             console.log("asdas", response.data);
+
+  //         } else {
+  //             console.log("Token não encontrado.");
+  //         }
+  //     } catch (error) {
+  //         console.log(error);
+  //     }
+  // }
+
+  //STATE PARA O ESTADO DOS CARDS FLATLIST, BOTOES FILTRO
+  const [selected, setSelected] = useState({
+    agendadas: "Agendadas",
+    realizadas: "Realizada",
+    canceladas: "Cancelada",
+  });
+
   useEffect(() => {
+    // GetConsultas()
+    // ListarConsultas()
+    setSelected("Agendadas");
     profileLoad();
   }, []);
+
+  useEffect(() => {
+    if (dataConsulta != "") {
+      ListarConsultas();
+    }
+    console.log(dataConsulta);
+  }, [dataConsulta]);
+
+  const image = require("../../assets/ImageCard.png");
+
+  // CARD MOCADOS
+
+  // const dataItens = [
+  //     {
+  //         id: 1,
+  //         hour: '14:00',
+  //         image: image,
+  //         name: 'Niccole Sarga',
+  //         age: '22 anos',
+  //         routine: 'Rotina',
+  //         status: "r"
+  //     },
+  //     {
+  //         id: 2,
+  //         hour: '15:00',
+  //         image: image,
+  //         name: 'Richard Kosta',
+  //         age: '28 anos',
+  //         routine: 'Urgência',
+  //         status: "a"
+  //     },
+  //     {
+  //         id: 3,
+  //         hour: '17:00',
+  //         image: image,
+  //         name: 'Neymar Jr',
+  //         age: '28 anos',
+  //         routine: 'Rotina',
+  //         status: "c"
+  //     }
+  // ]
+
+  // //FILTRO PARA CARD
+
+  // const Check = (data) => {
+  //     if (data.status === "a" && selected.agendadas) {
+  //         return true;
+  //     }
+  //     if (data.status === "r" && selected.realizadas) {
+  //         return true;
+  //     }
+  //     if (data.status === "c" && selected.canceladas) {
+  //         return true;
+  //     }
+  //     return false;
+  // }
+
+  // const data = consultaLista.filter(Check);
+
+  // STATES PARA OS MODAIS
+
+  const [showModalCancel, setShowModalCancel] = useState(false);
+  const [showModalAppointment, setShowModalAppointment] = useState(false);
 
   // RETURN
 
@@ -107,64 +179,85 @@ export const DoctorConsultation = ({ navigation }) => {
       <StatusBar translucent backgroundColor="transparent" />
       <Header>
         <BoxHome>
-          <BoxFlex>
-            <ImagemHome source={require("../../assets/DoctorImage.png")} />
+          <ImagemHome source={require("../../assets/DoctorImage.png")} />
 
-            <BoxDataHome>
-              <WelcomeTitle textTitle={"Bem vindo"} />
+          <BoxDataHome>
+            <WelcomeTitle textTitle={"Bem vindo"} />
 
-              <NameTitle textTitle={"Dr. " + nome} />
-            </BoxDataHome>
-          </BoxFlex>
-          <MoveIconBell>
-            <Ionicons name="notifications" size={25} color="white" />
-          </MoveIconBell>
+            <NameTitle textTitle={token.name} />
+          </BoxDataHome>
         </BoxHome>
+
+        <MoveIconBell>
+          <Ionicons name="notifications" size={25} color="white" />
+        </MoveIconBell>
       </Header>
 
-      <Calendar />
+      <Calendar setDataConsulta={setDataConsulta} />
 
       <ButtonHomeContainer>
         <FilterButton
           onPress={() => {
-            setSelected({ agendadas: true });
+            setSelected("Agendadas");
           }}
-          selected={selected.agendadas}
+          selected={selected === "Agendadas" ? true : false}
           text={"Agendadas"}
         />
+        {/* <FilterButton onPress={() => { setSelected({ agendadas: true }) }} selected={selected.agendadas} text={'Agendadas'} /> */}
 
         <FilterButton
           onPress={() => {
-            setSelected({ realizadas: true });
+            setSelected("Realizada");
           }}
-          selected={selected.realizadas}
+          selected={selected === "Realizada" ? true : false}
           text={"Realizadas"}
         />
 
         <FilterButton
           onPress={() => {
-            setSelected({ canceladas: true });
+            setSelected("Cancelada");
           }}
-          selected={selected.canceladas}
+          selected={selected === "Cancelada" ? true : false}
           text={"Canceladas"}
         />
       </ButtonHomeContainer>
 
       <FlatContainer
-        data={data}
-        renderItem={({ item }) => (
-          <Card
-            navigation={navigation}
-            hour={item.hour}
-            name={item.name}
-            age={item.age}
-            routine={item.routine}
-            url={image}
-            status={item.status}
-            onPressCancel={() => setShowModalCancel(true)}
-            onPressAppointment={() => setShowModalAppointment(true)}
-          />
-        )}
+        data={consultaLista}
+        renderItem={({ item }) =>
+          // item.situacao == selected
+          item.situacao.situacao == selected && (
+            <Card
+              navigation={navigation}
+              dataConsulta={item.dataConsulta}
+              hour={"14:00"}
+              name={item.paciente.idNavigation.nome}
+              age={`${
+                moment().year() -
+                moment(item.paciente.dataNascimento).format("YYYY")
+              } anos`}
+              routine={
+                item.prioridade == "1"
+                  ? "Rotina"
+                  : item.prioridade == "2"
+                  ? "Exame"
+                  : "Urgência"
+              }
+              url={image}
+              status={item.situacao.situacao}
+              // onPressCancel={() => setShowModalCancel(true)}
+              // onPressAppointment={() => { navigation.navigate("ViewPrescription") }}
+              // onPressAppointmentCard={() => setShowModalAppointment(item.situacao.situacao === 'Agendada' ? true : false)}
+
+              onPressCancel={() => {
+                MostrarModal("cancelar", item);
+              }}
+              onPressAppointmentCard={() => {
+                MostrarModal("prontuario", item);
+              }}
+            />
+          )
+        }
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
       />
@@ -175,6 +268,7 @@ export const DoctorConsultation = ({ navigation }) => {
       />
 
       <AppointmentModal
+        consulta={consultaSelecionada}
         navigation={navigation}
         visible={showModalAppointment}
         setShowModalAppointment={setShowModalAppointment}

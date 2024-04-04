@@ -100,9 +100,10 @@ export const CancelButtonRecords = styled(CancelButton)`
 `;
 
 export const AgeTextCard = styled(DescripritionForgot)`
+  margin-top: 4px;
   color: #8c8a97;
   font-size: 14px;
-  height: 18px;
+  height: 20px;
 `;
 
 export const DoctorArea = styled(DescripritionForgot)`
@@ -111,18 +112,17 @@ export const DoctorArea = styled(DescripritionForgot)`
   height: 20px;
   width: 49%;
   align-self: flex-start;
-  text-align: left;
+  text-align: flex-start;
   /* border: 1px solid black; */
 `;
 
 export const LocalizationText = styled(DoctorArea)`
   font-family: Quicksand_600SemiBold;
-  width: 60%;
 `;
 
 export const RoutineTextCard = styled(AgeTextCard)`
   margin-top: 6px;
-  height: 20px;
+  height: 22px;
   color: #8c8a97;
 `;
 
@@ -168,7 +168,7 @@ export const SmallDescriptionModal2 = styled(DescripritionForgot)`
   align-self: flex-start;
   color: #5f5c6b;
   width: 100%;
-  text-align: left;
+  text-align: none;
   margin-bottom: 0px;
 `;
 

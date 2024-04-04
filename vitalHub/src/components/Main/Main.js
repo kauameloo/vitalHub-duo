@@ -10,28 +10,33 @@ import { PatientProfile } from "../../screens/PatientProfile/PatientProfile";
 import { PatientConsultation } from "../../screens/PatientConsultation/PatientConsultation";
 
 import { DoctorConsultation } from "../../screens/DoctorConsultation/DoctorConsultation";
+import { useEffect } from "react";
+import { userDecodeToken } from "../../utils/Auth";
 
 const bottomTab = createBottomTabNavigator();
 
 export const Main = () => {
-  const Header = () => {
-    async function profileLoad() {
-      const token = await userDecodeToken();
+  async function profileLoad() {
+    const token = await userDecodeToken();
 
-      if (token) {
-        console.log(token);
-      }
+    if (token) {
+      console.log(token);
     }
+  }
 
-    useEffect(() => {
-      profileLoad();
-    }, []);
-  };
+  useEffect(() => {
+    profileLoad();
+  }, []);
+
   return (
     <bottomTab.Navigator
       initialRouteName="PatientConsultation"
       screenOptions={({ route }) => ({
-        tabBarStyle: { backgroundColor: "#FFFFFF", height: 70, paddingTop: 3 },
+        tabBarStyle: {
+          backgroundColor: "#FFFFFF",
+          height: 60,
+          paddingTop: 3,
+        },
         // tabBarInactiveBackgroundColor: "transparent",
         tabBarActiveBackgroundColor: "transparent",
         tabBarShowLabel: false,
@@ -89,7 +94,7 @@ export const DoctorMain = () => {
       screenOptions={({ route }) => ({
         tabBarStyle: {
           backgroundColor: "#FFFFFF",
-          height: 70,
+          height: 60,
           paddingTop: 3,
         },
         // tabBarInactiveBackgroundColor: "transparent",

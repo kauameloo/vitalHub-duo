@@ -9,13 +9,19 @@ import { DescriptionModalRecord } from "../Descriptions/StyledDescriptions";
 import { ImageModalRecord } from "../Images/StyleImages";
 import { TitleModal, TitleModalRecord } from "../Title/StyleTitle";
 import { BoxAgeEmailModal } from "./StyleAppointmentModal";
+import { useEffect } from "react";
+import moment from "moment";
 
 export const AppointmentModal = ({
+  consulta,
   navigation,
   visible,
   setShowModalAppointment = null,
   ...rest
 }) => {
+  useEffect(() => {
+    console.log(consulta);
+  });
   return (
     <Modal {...rest} visible={visible} transparent={true} animationType="fade">
       <PatientModal>
@@ -24,19 +30,32 @@ export const AppointmentModal = ({
             source={require("../../assets/ImageModalRecord.png")}
           />
 
-          <TitleModalRecord>Niccole Sarga</TitleModalRecord>
+          <TitleModalRecord>
+            {consulta && consulta.paciente && consulta.paciente.idNavigation
+              ? consulta.paciente.idNavigation.nome
+              : "Nome não disponível"}
+          </TitleModalRecord>
 
           <BoxAgeEmailModal>
-            <DescriptionModalRecord>22 anos</DescriptionModalRecord>
             <DescriptionModalRecord>
-              niccole.sarga@gmail.com
+              {" "}
+              {consulta && consulta.paciente && consulta.paciente.dataNascimento
+                ? `${
+                    moment().year() -
+                    moment(consulta.paciente.dataNascimento).format("YYYY")
+                  } anos`
+                : "Idade não disponível"}
+            </DescriptionModalRecord>
+            <DescriptionModalRecord>
+              {consulta && consulta.paciente && consulta.paciente.idNavigation
+                ? consulta.paciente.idNavigation.email
+                : "Email não disponível"}
             </DescriptionModalRecord>
           </BoxAgeEmailModal>
 
           <ButtonLargeSelect
             onPress={() => {
               navigation.navigate("MedicalRecords");
-              setShowModalAppointment(false);
             }}
             text={"Inserir Prontuário"}
           />
