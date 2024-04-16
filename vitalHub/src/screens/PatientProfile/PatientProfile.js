@@ -1,141 +1,190 @@
-import { useEffect, useState } from "react"
-import { Container, ContainerCepCidade, ScrollContainer } from "../../components/Container/StyleContainer"
-import { DescriptionPassword } from "../../components/Descriptions/Descriptions"
-import { DescripritionEmail, DescripritionForgot } from "../../components/Descriptions/StyledDescriptions"
-import { InputBox } from "../../components/InputBox/InputBox"
-import { ImagemPerfilPaciente } from "../../components/Images/StyleImages"
-import { TitleProfile } from "../../components/Title/StyleTitle"
-import { LargeButton, NormalButton } from "../../components/Button/StyleButton"
-import { ButtonText } from "../../components/ButtonText/StyleButtonText"
-
-import api from "../../services/Services"
-import { BlockedSmallButton, ButtonLarge } from "../../components/Button/Button"
-import { userDecodeToken, userLogoutToken } from "../../utils/Auth"
+import React, { useEffect, useState } from "react";
+import {
+  Container,
+  ContainerCepCidade,
+  ScrollContainer,
+} from "../../components/Container/StyleContainer";
+import { DescriptionPassword } from "../../components/Descriptions/Descriptions";
+import { InputBox } from "../../components/InputBox/InputBox";
+import { ImagemPerfilPaciente } from "../../components/Images/StyleImages";
+import { TitleProfile } from "../../components/Title/StyleTitle";
+import {
+  ButtonLarge,
+  BlockedSmallButton,
+} from "../../components/Button/Button";
+import { userDecodeToken, userLogoutToken } from "../../utils/Auth";
+import api from "../../services/Services";
+import moment from "moment/moment";
+import { Text } from "react-native";
 
 export const PatientProfile = ({ navigation }) => {
+  const [cep, setCep] = useState("");
+  const [logradouro, setLogradouro] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [dataNascimento, setDataNascimento] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [editable, setEditable] = useState(false);
+  const [token, setToken] = useState({});
+  const [pacienteData, setPacienteData] = useState({});
 
-    const [cep, setCep] = useState('');
-    const [logradouro, setLogradouro] = useState('');
-    const [cidade, setCidade] = useState('');
-
-    const [token, setToken] = useState({});
-
-
-    async function profileLoad() {
-
-        const token = await userDecodeToken();
-
-        if (token) {
-            console.log(token)
-            setToken(token)
+  useEffect(() => {
+    const fetchData = async () => {
+      const userToken = await userDecodeToken();
+      if (userToken && userToken.idUsuario) {
+        setToken(userToken);
+        try {
+          const response = await api.get(
+            `/Pacientes/BuscarPorId?id=${userToken.idUsuario}`
+          );
+          const { endereco, dataNascimento, cpf } = response.data;
+          setPacienteData(response.data);
+          setLogradouro(endereco.logradouro);
+          setCidade(endereco.cidade);
+          setDataNascimento(dataNascimento);
+          setCpf(cpf);
+          // Definir o estado `cep` com o CEP do paciente
+          setCep(endereco.cep);
+          console.log(endereco);
+        } catch (error) {
+          console.error("Erro ao buscar dados do paciente:", error);
         }
+      } else {
+        console.error("Token is not valid or idUsuario is not present.");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleLogout = () => {
+    userLogoutToken();
+    navigation.replace("Login");
+  };
+
+  const handleCepChange = async (newCep) => {
+    setCep(newCep);
+    if (newCep.length === 8) {
+      try {
+        const response = await fetch(
+          `https://viacep.com.br/ws/${newCep}/json/`
+        );
+        const data = await response.json();
+        if (!data.erro) {
+          setLogradouro(data.logradouro);
+          setCidade(data.localidade);
+        } else {
+          console.error("CEP não encontrado");
+        }
+      } catch (error) {
+        console.error("Erro ao consultar ViaCEP:", error);
+      }
     }
+  };
 
-    useEffect(() => {
+  const handleSave = async () => {
+    try {
+      await api.put(
+        `/Pacientes/AtualizarDados?id=${token.idUsuario}`,
+        {
+          logradouro: logradouro,
+          cep: cep,
+          cidade: cidade,
+          dataNascimento: dataNascimento,
+          cpf: cpf,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + JSON.parse(token.token).token,
+          },
+        }
+      );
 
-        // const getCep = async () => {
-        //     if (cep !== "" && cep.length === 8) {
-        //         try {
+      console.log("Dados do paciente atualizados com sucesso.");
+      setEditable(false);
+      setLogradouro(logradouro); // Atualize o estado com o novo logradouro
+      setCep(cep); // Atualize o estado com o novo CEP
+      setCidade(cidade); // Atualize o estado com a nova cidade
+      console.log(logradouro, cep, cidade);
+    } catch (error) {
+      console.error("Erro ao atualizar dados do paciente:", error);
+    }
+  };
 
-        //             const response = await api.get(`${cep}/json/`);
+  return (
+    <ScrollContainer>
+      <Container>
+        <ImagemPerfilPaciente
+          source={require("../../assets/LimaCorinthians.png")}
+        />
+        <TitleProfile>{token.name}</TitleProfile>
+        <DescriptionPassword description={token.email} />
 
-        //             if (response.data) {
+        <InputBox
+          placeholderTextColor="#A1A1A1"
+          textLabel="Data de nascimento:"
+          placeholder="Ex. 04/05/1999"
+          keyboardType="numeric"
+          fieldValue={moment(dataNascimento).format("DD/MM/YYYY")}
+          editable={editable}
+          onChangeText={setDataNascimento}
+          fieldWidth={90}
+        />
+        <InputBox
+          placeholderTextColor="#A1A1A1"
+          textLabel="CPF"
+          placeholder="CPF..."
+          keyboardType="numeric"
+          maxLength={11}
+          fieldValue={cpf}
+          editable={editable}
+          onChangeText={setCpf}
+          fieldWidth={90}
+        />
+        <InputBox
+          placeholderTextColor="#A1A1A1"
+          textLabel="Endereço"
+          placeholder="Endereço..."
+          editable={false}
+          fieldValue={logradouro}
+          fieldWidth={90}
+        />
 
-        //                 setLogradouro(response.data.logradouro);
-        //                 setCidade(response.data.localidade);
+        <Text>{cep}</Text>
+        <Text>{cidade}</Text>
+        <Text>{logradouro}</Text>
 
-        //             } else {
+        <ContainerCepCidade>
+          <InputBox
+            placeholderTextColor="#A1A1A1"
+            textLabel="CEP"
+            placeholder="CEP..."
+            maxLength={8}
+            keyboardType="numeric"
+            fieldValue={cep} // Exibir o CEP cadastrado
+            editable={editable}
+            onChangeText={handleCepChange}
+            fieldWidth={40}
+          />
+          <InputBox
+            placeholderTextColor="#A1A1A1"
+            textLabel="Cidade"
+            placeholder="Cidade..."
+            editable={false}
+            fieldValue={cidade}
+            fieldWidth={40}
+          />
+        </ContainerCepCidade>
 
-        //                 alert("Verifique o CEP digitado !!!");
+        {editable ? (
+          <ButtonLarge text="Salvar" onPress={handleSave} />
+        ) : (
+          <ButtonLarge text="Editar" onPress={() => setEditable(true)} />
+        )}
 
-        //             }
-        //         } catch (error) {
+        <BlockedSmallButton onPress={handleLogout} text="Sair do app" />
+      </Container>
+    </ScrollContainer>
+  );
+};
 
-        //             console.log("Ocorreu um erro ao buscar o CEP", error);
-
-        //         }
-        //     }
-        // };
-
-        // getCep();
-
-        profileLoad()
-
-
-    }, []);
-
-    return (
-
-        <ScrollContainer>
-
-            <Container>
-
-                <ImagemPerfilPaciente source={require('../../assets/LimaCorinthians.png')} />
-
-                <TitleProfile>{token.name}</TitleProfile>
-
-                <DescriptionPassword description={token.email} />
-
-                <InputBox
-                    placeholderTextColor={"#A1A1A1"}
-                    textLabel={"Data de nascimento:"}
-                    placeholder={"Ex. 04/05/1999"}
-                    keyboardType="numeric"
-                    editable={true}
-                    fieldWidth={90}
-                />
-                <InputBox
-                    placeholderTextColor={"#A1A1A1"}
-                    textLabel={"CPF"}
-                    placeholder={"CPF..."}
-                    keyboardType="numeric"
-                    maxLength={11}
-                    editable={true}
-                    fieldWidth={90}
-                />
-                <InputBox
-                    placeholderTextColor={"#A1A1A1"}
-                    textLabel={"Endereço"}
-                    placeholder={"Endereço..."}
-                    editable={false}
-                    fieldValue={logradouro}
-                    fieldWidth={90}
-                />
-
-                <ContainerCepCidade>
-                    <InputBox
-                        placeholderTextColor={"#A1A1A1"}
-                        textLabel={"CEP"}
-                        placeholder={"CEP..."}
-                        maxLength={8}
-                        onChangeText={text => setCep(text)}
-                        keyboardType="numeric"
-                        editable={true}
-                        fieldWidth={40}
-                        fieldValue={cep}
-                    />
-                    <InputBox
-                        placeholderTextColor={"#A1A1A1"}
-                        textLabel={"Cidade"}
-                        placeholder={"Cidade..."}
-                        editable={false}
-                        fieldWidth={40}
-                        fieldValue={cidade}
-                    />
-                </ContainerCepCidade>
-
-                <ButtonLarge text={"Salvar"} />
-
-                <ButtonLarge text={"Editar"} />
-
-                <BlockedSmallButton
-                    onPress={() => {userLogoutToken(); navigation.replace("Login")}}
-                    text={"Sair do app"} 
-                    />
-
-            </Container>
-
-        </ScrollContainer>
-
-    )
-}
+export default PatientProfile;

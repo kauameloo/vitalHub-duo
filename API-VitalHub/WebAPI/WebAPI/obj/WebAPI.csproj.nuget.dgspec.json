@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\kaua-\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\kaua-\\OneDrive\\Área de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kaua-\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,9 +45,17 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.19.1, )"
+            },
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.4.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -61,6 +69,10 @@
               "target": "Package",
               "version": "[7.0.11, )"
             },
+            "Microsoft.Azure.CognitiveServices.Vision.ComputerVision": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.14, )"
@@ -70,6 +82,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.14, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.4.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

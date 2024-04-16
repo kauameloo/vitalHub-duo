@@ -33,6 +33,13 @@ export const DoctorConsultation = ({ navigation }) => {
 
   const [consultaSelecionada, setConsultaSelecionada] = useState([]);
 
+  //state para cancelar consulta
+  const [consultaCancel, setConsultaCancel] = useState({
+    id: "",
+    //ID DE CONSULTAS CANCELADAS, PEGAR NO BANCO -----------------------------
+    situacaoId: "F849BFED-ED8A-4E02-87E6-99AF8432CAAC",
+  });
+
   const dataAtual = new Date();
 
   function MostrarModal(modal, consulta) {
@@ -70,31 +77,6 @@ export const DoctorConsultation = ({ navigation }) => {
     }
   }
 
-  // async function GetConsultas() {
-  //     try {
-
-  //         const token = await tokenClean();
-
-  //         if (token) {
-
-  //             const response = await api.get('/Consultas', {
-  //                 headers: {
-  //                     Authorization: `Bearer ${token}`
-  //                 }
-  //             });
-
-  //             setConsultaLista(response.data);
-
-  //             console.log("asdas", response.data);
-
-  //         } else {
-  //             console.log("Token não encontrado.");
-  //         }
-  //     } catch (error) {
-  //         console.log(error);
-  //     }
-  // }
-
   //STATE PARA O ESTADO DOS CARDS FLATLIST, BOTOES FILTRO
   const [selected, setSelected] = useState({
     agendadas: "Agendadas",
@@ -118,54 +100,6 @@ export const DoctorConsultation = ({ navigation }) => {
 
   const image = require("../../assets/ImageCard.png");
 
-  // CARD MOCADOS
-
-  // const dataItens = [
-  //     {
-  //         id: 1,
-  //         hour: '14:00',
-  //         image: image,
-  //         name: 'Niccole Sarga',
-  //         age: '22 anos',
-  //         routine: 'Rotina',
-  //         status: "r"
-  //     },
-  //     {
-  //         id: 2,
-  //         hour: '15:00',
-  //         image: image,
-  //         name: 'Richard Kosta',
-  //         age: '28 anos',
-  //         routine: 'Urgência',
-  //         status: "a"
-  //     },
-  //     {
-  //         id: 3,
-  //         hour: '17:00',
-  //         image: image,
-  //         name: 'Neymar Jr',
-  //         age: '28 anos',
-  //         routine: 'Rotina',
-  //         status: "c"
-  //     }
-  // ]
-
-  // //FILTRO PARA CARD
-
-  // const Check = (data) => {
-  //     if (data.status === "a" && selected.agendadas) {
-  //         return true;
-  //     }
-  //     if (data.status === "r" && selected.realizadas) {
-  //         return true;
-  //     }
-  //     if (data.status === "c" && selected.canceladas) {
-  //         return true;
-  //     }
-  //     return false;
-  // }
-
-  // const data = consultaLista.filter(Check);
 
   // STATES PARA OS MODAIS
 
@@ -235,22 +169,29 @@ export const DoctorConsultation = ({ navigation }) => {
               age={`${
                 moment().year() -
                 moment(item.paciente.dataNascimento).format("YYYY")
-              } anos`}
+              } anos      .`}
               routine={
-                item.prioridade == "1"
+                item.prioridade.prioridade == "1"
                   ? "Rotina"
-                  : item.prioridade == "2"
+                  : item.prioridade.prioridade == "2"
                   ? "Exame"
                   : "Urgência"
               }
               url={image}
               status={item.situacao.situacao}
               // onPressCancel={() => setShowModalCancel(true)}
-              // onPressAppointment={() => { navigation.navigate("ViewPrescription") }}
+              onPressAppointment={() => {
+                navigation.navigate("ViewPrescriptionDoc", { consulta: item });
+              }}
               // onPressAppointmentCard={() => setShowModalAppointment(item.situacao.situacao === 'Agendada' ? true : false)}
 
               onPressCancel={() => {
-                MostrarModal("cancelar", item);
+                MostrarModal("cancelar", item),
+                  setConsultaCancel((prevState) => ({
+                    ...prevState,
+                    id: item.id,
+                  })),
+                  ListarConsultas();
               }}
               onPressAppointmentCard={() => {
                 MostrarModal("prontuario", item);
@@ -263,6 +204,7 @@ export const DoctorConsultation = ({ navigation }) => {
       />
 
       <CancellationModal
+        consultaCancel={consultaCancel}
         visible={showModalCancel}
         setShowModalCancel={setShowModalCancel}
       />

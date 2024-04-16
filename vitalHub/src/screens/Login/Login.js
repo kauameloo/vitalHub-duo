@@ -17,9 +17,8 @@ import { ButtonText } from "../../components/ButtonText/StyleButtonText";
 import { Button } from "../../components/Button/StyleButton";
 
 export const Login = ({ navigation }) => {
-  
-  const [email, setEmail] = useState("lima@email.com");
-  const [senha, setSenha] = useState("123456");
+  const [email, setEmail] = useState("kaua@email.com");
+  const [senha, setSenha] = useState("kaua123");
   const [loading, setLoading] = useState(false);
 
   async function Login() {

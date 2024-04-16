@@ -55,7 +55,7 @@ export const AppointmentModal = ({
 
           <ButtonLargeSelect
             onPress={() => {
-              navigation.navigate("MedicalRecords");
+              navigation.navigate("MedicalRecords"), { consulta: consulta };
             }}
             text={"Inserir Prontuário"}
           />
