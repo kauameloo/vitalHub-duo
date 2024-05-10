@@ -11,7 +11,7 @@ import { Button } from "../../components/Button/StyleButton";
 import { ButtonText } from "../../components/ButtonText/StyleButtonText";
 
 export const ForgotPassword = ({ navigation }) => {
-  const [email, setEmail] = useState("heitorperrotta@gmail.com");
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function indicator() {
@@ -61,7 +61,7 @@ export const ForgotPassword = ({ navigation }) => {
           email != null
             ? sendEmail()
             : alert("Por favor! Preencha o campo de email imediatamente!");
-        //   navigation.navigate("CheckEmail", { emailRecuperacao: email });
+          //   navigation.navigate("CheckEmail", { emailRecuperacao: email });
         }}
       >
         {loading ? <ActivityIndicator /> : <ButtonText>Continuar</ButtonText>}

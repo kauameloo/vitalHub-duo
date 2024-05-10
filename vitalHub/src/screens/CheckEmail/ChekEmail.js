@@ -1,4 +1,4 @@
-import { ActivityIndicator, StatusBar } from "react-native";
+import { Keyboard, ActivityIndicator, StatusBar } from "react-native";
 import { ButtonNormal } from "../../components/Button/Button";
 import {
   BoxNumeric,
@@ -21,6 +21,9 @@ export const CheckEmail = ({ navigation, route }) => {
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const inputRefs = useRef([]);
+  const numberOfInputs = 4; // Número de campos de entrada no código
+
   async function indicator() {
     setLoading(true);
   }
@@ -40,6 +43,23 @@ export const CheckEmail = ({ navigation, route }) => {
   //         inputs[index - 1].current.focus()
   //     }
   // }
+
+  // Função para monitorar as mudanças nos inputs do código
+  const handleCodeChange = (text, index) => {
+    const newCode = [...code]; // Cria uma cópia do array de código
+    newCode[index] = text; // Atualiza o valor do campo no índice específico
+    setCode(newCode.join("")); // Atualiza o estado do código
+
+    // Se todos os campos estiverem preenchidos, oculte o teclado
+    if (index === numberOfInputs - 1 && text !== "") {
+      Keyboard.dismiss();
+    }
+
+    // Move o foco para o próximo input se o campo atual não estiver vazio
+    if (text !== "" && index < numberOfInputs - 1) {
+      inputRefs.current[index + 1].focus();
+    }
+  };
 
   async function validateRecoveryCode() {
     try {
@@ -79,47 +99,7 @@ export const CheckEmail = ({ navigation, route }) => {
 
       <EmailDescription email={route.params.emailRecuperacao} />
 
-      {/* <BoxNumeric>
-                {
-                    [0, 1, 2, 3].map((index) => (
-                        <NumericInput
-                            key={index}
-
-                            ref={inputs[index]}
-
-                            placeholder={"0"}
-                            placeholderTextColor={"#34898F"}
-
-                            onChangeText={(x) => {
-                                //Verificar se o campo é vazio
-
-                                if (x == "") {
-
-                                    focusPrevInput( index )
-
-                                } else {
-                                    //Verificar se o campo foi preenchido
-
-                                    const codigoInformado = [...codigo]
-                                    codigoInformado[index] = x
-
-                                    setCodigo(codigoInformado.join)
-
-                                    focusNextInput( index )
-                                }
-
-                            }}
-                        />
-                    ))
-                }
-
-            </BoxNumeric> */}
-
       <CodeInput code={code} setCode={setCode} />
-
-      {/* <ButtonNormal text={"Confirmar"} onPress={() => {validateRecoveryCode(), navigation.navigate("RedefinePassword", email) }} /> */}
-
-      {/* <ButtonNormal text={"Confirmar"} onPress={() =>  validateRecoveryCode() } /> */}
 
       <Button
         disabled={loading}
