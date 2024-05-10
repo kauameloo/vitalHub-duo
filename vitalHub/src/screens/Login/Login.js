@@ -17,8 +17,10 @@ import { ButtonText } from "../../components/ButtonText/StyleButtonText";
 import { Button } from "../../components/Button/StyleButton";
 
 export const Login = ({ navigation }) => {
-  const [email, setEmail] = useState("kaua@email.com");
-  const [senha, setSenha] = useState("kaua123");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  // const [email, setEmail] = useState("thigas@email.com");
+  // const [senha, setSenha] = useState("10203040");
   const [loading, setLoading] = useState(false);
 
   async function Login() {
@@ -45,6 +47,8 @@ export const Login = ({ navigation }) => {
       })
       .catch((error) => {
         console.log(error);
+        alert("Senha ou email incorretos !!!");
+        setLoading(false);
       });
   }
 

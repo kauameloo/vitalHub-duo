@@ -1,4 +1,5 @@
-import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 import { Text } from "react-native";
 import { BarContent, TextBar } from "./StyleMain";
@@ -12,10 +13,13 @@ import { PatientConsultation } from "../../screens/PatientConsultation/PatientCo
 import { DoctorConsultation } from "../../screens/DoctorConsultation/DoctorConsultation";
 import { useEffect } from "react";
 import { userDecodeToken } from "../../utils/Auth";
+import DoctorProfile from "../../screens/DoctorProfile/DoctorProfile";
 
 const bottomTab = createBottomTabNavigator();
 
-export const Main = () => {
+export const Main = ({ navigation, route }) => {
+  const routeParams = route.params;
+
   async function profileLoad() {
     const token = await userDecodeToken();
 
@@ -32,11 +36,7 @@ export const Main = () => {
     <bottomTab.Navigator
       initialRouteName="PatientConsultation"
       screenOptions={({ route }) => ({
-        tabBarStyle: {
-          backgroundColor: "#FFFFFF",
-          height: 60,
-          paddingTop: 3,
-        },
+        tabBarStyle: { backgroundColor: "#FFFFFF", height: 60, paddingTop: 3 },
         // tabBarInactiveBackgroundColor: "transparent",
         tabBarActiveBackgroundColor: "transparent",
         tabBarShowLabel: false,
@@ -82,12 +82,14 @@ export const Main = () => {
 
       {/* : */}
 
-      <bottomTab.Screen name="PatientProfile" component={PatientProfile} />
+      <bottomTab.Screen name="PatientProfile">
+        {(props) => <PatientProfile navigation={navigation} route={route} />}
+      </bottomTab.Screen>
     </bottomTab.Navigator>
   );
 };
 
-export const DoctorMain = () => {
+export const DoctorMain = ({ navigation, route }) => {
   return (
     <bottomTab.Navigator
       initialRouteName="DoctorConsultation"
@@ -142,7 +144,9 @@ export const DoctorMain = () => {
 
       {/* : */}
 
-      <bottomTab.Screen name="PatientProfile" component={PatientProfile} />
+      <bottomTab.Screen name="DoctorProfile">
+        {(props) => <DoctorProfile route={route} navigation={navigation} />}
+      </bottomTab.Screen>
     </bottomTab.Navigator>
   );
 };

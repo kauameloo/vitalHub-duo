@@ -23,6 +23,7 @@ import { ImageCard, PointCard } from "../Images/StyleImages";
 import { NameCard, NameCardClinic, NameCardSelect } from "../Title/StyleTitle";
 import {
   AgeCard,
+  AgeCardDoc,
   BoxRate,
   CardContainer,
   CardContainerClinic,
@@ -43,10 +44,11 @@ export const Card = ({
   onPressAppointment,
   onPressAppointmentCard,
   navigation,
-  dataConsulta
+  dataConsulta,
 }) => {
+  
   const Check = () => {
-    if (status === "Agendadas") {
+    if (status === "Agendada") {
       return (
         <BoxDateCancel>
           <ConsultDate>
@@ -104,7 +106,7 @@ export const Card = ({
   return (
     <CardContainer onPress={onPressAppointmentCard}>
       <BoxCard>
-        <ImageCard source={url} />
+        <ImageCard source={{ uri: url }} />
 
         <BoxTextCard>
           <NameCard>{name}</NameCard>
@@ -124,10 +126,10 @@ export const Card = ({
   );
 };
 
-export const CardSelectDoctor = ({ url, name, doctorArea }) => {
+export const CardSelectDoctor = ({ url, name, doctorArea, onPress, selecionado = false }) => {
   return (
-    <CardContainer>
-      <ImageCard source={url} />
+    <CardContainer onPress={onPress} selecionada={selecionado} >
+      <ImageCard source={{ uri: url }} />
 
       <BoxCard>
         <BoxTextDoctorCard>
@@ -140,14 +142,20 @@ export const CardSelectDoctor = ({ url, name, doctorArea }) => {
   );
 };
 
+
 export const CardSelectClinic = ({
-     name, 
-     localization, 
-    //  rate, 
-    //  openTime
-     }) => {
+  name,
+  localization,
+  onPress,
+  selecionado = false
+  //  rate,
+  //  openTime
+}) => {
   return (
-    <CardContainerClinic>
+    <CardContainerClinic
+      onPress={onPress}
+      selecionada={selecionado} 
+    >
       <BoxCard>
         <BoxTextClinicCard>
           <NameCardClinic>{name}</NameCardClinic>

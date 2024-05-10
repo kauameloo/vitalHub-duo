@@ -13,74 +13,98 @@ import { ActivityIndicator } from "react-native";
 import api from "../../services/Services";
 
 export const ConsultLocalization = ({ navigation, route }) => {
-  const [clinica, setClinica] = useState(null);
+
+  const [ clinica, setClinica ] = useState(null)
 
   useEffect(() => {
+
     if (clinica == null) {
-      BuscarClinica();
+      BuscarClinica()
+      
     }
-  }, [clinica]);
+  }, [clinica])
+
+  useEffect(() => {
+
+    console.log(route)
+
+  }, [route.params])
+
+
 
   async function BuscarClinica() {
-    await api
-      .get(`/Clinica/BuscarPorId?id=${route.params.clinicaId}`)
-      .then((response) => {
+    await api.get(`/Clinica/BuscarPorId?id=${route.params.clinicaId}`)
+      .then(response => {
         setClinica(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
+        console.log("adsa", response.data);
+      }).catch(error => {
         console.log(error);
-      });
+      })
   }
 
   return (
     <Container>
-      {clinica != null ? (
-        <>
-          <Maps latitude={clinica.latitude} longitude={clinica.longitude} />
+      {
+        clinica != null ? (
+          <>
 
-          <TitleLocalization>{clinica.nomeFantasia}</TitleLocalization>
+            <Maps
+              latitude={clinica.endereco.latitude} longitude={clinica.endereco.longitude}
+            />
 
-          <AgeTextCard>asda</AgeTextCard>
+            <TitleLocalization>{clinica.nomeFantasia}</TitleLocalization>
 
-          <InputBox
-            placeholderTextColor={"#33303E"}
-            textLabel={"Endereço"}
-            placeholder={"Ex. Rua Vicenso Silva, 58"}
-            fieldValue={clinica.endereco.logradouro}
-            // keyboardType="numeric"
-            editable={true}
-            fieldWidth={90}
-          />
+            <AgeTextCard>{clinica.endereco.cidade}</AgeTextCard>
 
-          <ContainerCepCidade>
             <InputBox
               placeholderTextColor={"#33303E"}
-              textLabel={"Número"}
-              placeholder={"Ex. 570"}
-              keyboardType="numeric"
-              editable={true}
-              fieldWidth={40}
+              textLabel={"Endereço"}
+              placeholder={"Ex. Rua Vicenso Silva, 58"}
+              fieldValue={clinica.endereco.logradouro}
+              // keyboardType="numeric"
+              editable={false}
+              fieldWidth={90}
             />
-            <InputBox
-              placeholderTextColor={"#33303E"}
-              textLabel={"Bairro"}
-              placeholder={"Ex. Vila Ema"}
-              editable={true}
-              fieldWidth={40}
-            />
-          </ContainerCepCidade>
 
-          <CardCancelLessLocal
-            onPressCancel={() => {
-              navigation.replace("Main");
-            }}
-            text={"Voltar"}
-          />
-        </>
-      ) : (
-        <ActivityIndicator style={{ marginTop: "100%" }} />
-      )}
+            <ContainerCepCidade>
+              <InputBox
+                placeholderTextColor={"#33303E"}
+                textLabel={"Número"}
+                placeholder={"Ex. 570"}
+                keyboardType="numeric"
+                editable={false}
+                fieldWidth={40}
+                fieldValue={`${clinica.endereco.numero}`}
+              />
+              <InputBox
+                placeholderTextColor={"#33303E"}
+                textLabel={"Cidade"}
+                placeholder={"Ex. São Paulo"}
+                editable={false}
+                fieldWidth={40}
+                fieldValue={clinica.endereco.cidade}
+              />
+            </ContainerCepCidade>
+
+            <CardCancelLessLocal
+              onPressCancel={() => {
+                navigation.replace("Main");
+              }}
+              text={"Voltar"}
+            />
+
+          </>
+        )
+
+          :
+
+          (
+            <ActivityIndicator style={{marginTop: '100%'}} />
+          )
+      }
+
+
+
     </Container>
   );
 };

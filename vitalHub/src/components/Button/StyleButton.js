@@ -7,10 +7,15 @@ export const Button = styled.TouchableOpacity`
     background-color: #496BBA;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 32px;
     border: 1px solid #496BBA;
-
 `
+
+export const ButtonModal = styled(Button)`
+    width: 100%;
+    margin-bottom: 8%;
+`
+
 export const NormalButton = styled.TouchableOpacity`
     margin-top: 32px;
     border-radius: 8px;

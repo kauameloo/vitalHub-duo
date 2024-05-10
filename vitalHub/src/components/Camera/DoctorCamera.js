@@ -24,8 +24,11 @@ import { Entypo } from "@expo/vector-icons";
 
 import { ButtonLargeConfirmModal } from "../Button/Button";
 import { CardCancelLess } from "../Descriptions/Descriptions";
+import { LastPhoto } from "./Style";
 
-export default function Cam({ navigation, route }) {
+import * as ImagePicker from "expo-image-picker";
+
+export default function DoctorCam({ navigation }) {
   const cameraRef = useRef(null);
 
   const [openModal, setOpenModal] = useState(false);
@@ -38,6 +41,8 @@ export default function Cam({ navigation, route }) {
 
   const [zoom, setZoom] = useState(0);
 
+  const [lastPhoto, setLastPhoto] = useState(null);
+
   useEffect(() => {
     (async () => {
       const { status: cameraStatus } =
@@ -48,36 +53,35 @@ export default function Cam({ navigation, route }) {
     })();
   }, []);
 
-  // useEffect(() => {
-  //     GetLatestPhoto()
-  // }, [])
+  useEffect(() => {
+    GetLatestPhoto();
+  }, []);
 
-  // async function GetLatestPhoto() {
+  async function GetLatestPhoto() {
+    const { assets } = await MediaLibrary.getAssetsAsync({
+      sortBy: [[MediaLibrary.SortBy.creationTime, false]],
+      first: 1,
+    });
 
-  //     const { assets } = await MediaLibrary.getAssetsAsync({ sortBy: [[MediaLibrary.SortBy.creationTime, false]], first: 1 })
+    console.log(assets);
 
-  //     console.log(assets)
+    if (assets.length > 0) {
+      setLastPhoto(assets[0].uri);
+    }
+  }
 
-  //     if (assets.length > 0) {
-  //         setLastPhoto(assets[0].uri)
-  //     }
+  async function SelectImageGallery() {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 1,
+    });
 
-  // }
+    if (!result.canceled) {
+      setPhoto(result.assets[0].uri);
 
-  // async function SelectImageGallery() {
-
-  //     const result = await ImagePicker.launchImageLibraryAsync({
-  //         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-  //         quality: 1
-  //     })
-
-  //     if (!result.canceled) {
-  //         setPhoto(result.assets[0].uri)
-
-  //         setOpenModal(true)
-  //     }
-
-  // }
+      setOpenModal(true);
+    }
+  }
 
   async function CapturePhoto() {
     if (cameraRef) {
@@ -96,23 +100,10 @@ export default function Cam({ navigation, route }) {
   }
 
   async function UploadPhoto() {
-    //   if (photo) {
-    //     await MediaLibrary.createAssetAsync(photo).then(() => {
-    //       console.log(photo);
-
-    //     //    Alert.alert('Sucesso', ('foto salva na galeria'));
-
-    //       navigation.navigate("ViewPrescription", { photoUri: photo.uri });
-    //     }).catch(error => {
-    //       // alert("erro ao processar" + error);
-    //       console.log(error)
-
-    //     });
-
     console.log(photo);
-    navigation.navigate("ViewPrescription", {
+    navigation.navigate("DoctorMain", {
       photoUri: photo,
-      idConsulta: route.params.id,
+      screen: "DoctorProfile",
     });
   }
 
@@ -146,21 +137,30 @@ export default function Cam({ navigation, route }) {
             <TouchableOpacity
               style={styles.btnClear}
               onPress={() => {
-                navigation.replace("ViewPrescription");
+                navigation.replace("DoctorProfile");
               }}
             >
               <FontAwesome name="close" size={23} color={"#fff"} />
             </TouchableOpacity>
 
+            <TouchableOpacity
+              style={styles.btnFlip}
+              onPress={() =>
+                setTipoCamera(tipoCamera == "front" ? "back" : "front")
+              }
+            >
+              <Ionicons name="camera-reverse" size={32} color="white" />
+            </TouchableOpacity>
+
             <View style={styles.viewFlip}>
-              <TouchableOpacity
-                style={styles.btnFlip}
-                onPress={() =>
-                  setTipoCamera(tipoCamera == "front" ? "back" : "front")
-                }
-              >
-                <Ionicons name="camera-reverse" size={32} color="white" />
-              </TouchableOpacity>
+              {lastPhoto !== null ? (
+                <TouchableOpacity
+                  style={styles.btnGallery}
+                  onPress={() => SelectImageGallery()}
+                >
+                  <LastPhoto source={{ uri: lastPhoto }} />
+                </TouchableOpacity>
+              ) : null}
 
               <TouchableOpacity
                 style={styles.btnCapture}
@@ -227,7 +227,7 @@ export default function Cam({ navigation, route }) {
                     />
 
                     <CardCancelLess
-                      onPressCancel={() => navigation.replace("Camera")}
+                      onPressCancel={() => navigation.replace("DoctorCamera")}
                       text={"Refazer"}
                     />
                   </View>
@@ -265,8 +265,17 @@ const styles = StyleSheet.create({
   },
   btnFlip: {
     padding: 20,
-    marginBottom: 15,
+    // marginBottom: 10,
+    marginLeft: "80%",
+    marginTop: -68,
   },
+
+  btnGallery: {
+    padding: 20,
+    marginBottom: 10,
+    marginRight: -0,
+  },
+
   txtFlip: {
     fontSize: 20,
     color: "#fff",
@@ -300,6 +309,7 @@ const styles = StyleSheet.create({
   btnClear: {
     backgroundColor: "transparent",
     padding: 20,
+    marginRight: "80%",
     marginTop: 35,
 
     alignItems: "center",

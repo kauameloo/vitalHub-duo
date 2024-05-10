@@ -22,52 +22,53 @@ export const PatientAppointmentModal = ({
   setShowModal = null,
   ...rest
 }) => {
+
+
   function handlePress(rota) {
-    console.log("consulta");
+    
+    console.log('consulta');
     console.log(consulta);
 
-    navigation.navigate(rota, { clinicaId: consulta.medicoClinica.clinicaId });
+    navigation.replace(rota, { clinicaId: consulta.medicoClinica.clinicaId })
+
   }
+
 
   return (
     <Modal {...rest} visible={visible} transparent={true} animationType="fade">
-      {consulta != null && (
-        <PatientModal>
-          <ModalContent>
-            <ImageModalRecord
-              source={require("../../assets/CardRecordPatient(doctorImage).png")}
-            />
+      {
+        consulta != null && (
+          <PatientModal>
+            <ModalContent>
+              <ImageModalRecord
+                source={{uri : consulta.medicoClinica.medico.idNavigation.foto}}
+              />
 
-            <TitleModalRecord>
-              {consulta.medicoClinica.medico.idNavigation.nome}
-            </TitleModalRecord>
+              <TitleModalRecord>{consulta.medicoClinica.medico.idNavigation.nome}</TitleModalRecord>
 
-            <BoxAgeEmailModal>
-              <DescriptionModalRecord>
-                {consulta.medicoClinica.medico.especialidade.especialidade1}
-              </DescriptionModalRecord>
-              <DescriptionModalRecord>{`CRM-${consulta.medicoClinica.medico.crm}`}</DescriptionModalRecord>
-            </BoxAgeEmailModal>
+               <BoxAgeEmailModal>
+            <DescriptionModalRecord>{consulta.medicoClinica.medico.especialidade.especialidade1}</DescriptionModalRecord>
+            <DescriptionModalRecord>{`CRM-${consulta.medicoClinica.medico.crm}`}</DescriptionModalRecord>
+          </BoxAgeEmailModal> 
 
-            <ButtonLargeConfirmModal
-              onPress={() => {
-                // navigation.navigate("ConsultLocalization", {
-                //   latitude: consulta.latitude,
-                //   longitude: consulta.longitude,
-                // }),
-                handlePress("ConsultLocalization");
-                setShowModal(false);
-              }}
-              text={"Ver Local da Consulta"}
-            />
+              <ButtonLargeConfirmModal
+                onPress={() => {
+                  // navigation.navigate("ConsultLocalization", { latitude: doctorData.latitude , longitude: doctorData.longitude } ),
+                  handlePress("ConsultLocalization")
+                  setShowModal(false);
+                }}
+                text={"Ver Local da Consulta"}
+              />
 
-            <CardCancelLess
-              onPressCancel={() => setShowModal(false)}
-              text={"Cancelar"}
-            />
-          </ModalContent>
-        </PatientModal>
-      )}
+              <CardCancelLess
+                onPressCancel={() => setShowModal(false)}
+                text={"Cancelar"}
+              />
+            </ModalContent>
+          </PatientModal>
+        )
+      }
+
     </Modal>
   );
 };

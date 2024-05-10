@@ -12,22 +12,35 @@ export const CardContainer = styled.TouchableOpacity`
   width: 90%;
   height: 105px;
   flex-direction: row;
+
+  ${props => props.selecionada && css`
+    border: 2px solid #49B3BA;
+  `}
+
 `;
 
 export const CardContainerClinic = styled(CardContainer)`
   height: 85px;
+  ${props => props.selecionada && css`
+    border: 2px solid #49B3BA;
+  `}
 `;
 
 export const AgeCard = styled.SafeAreaView`
-  margin-left: 13%;
   margin-bottom: 0px;
+  margin-left: 14px;
+  margin-right: 0px;
+  padding-left: 10px;
   flex-direction: row;
-  width: 100px;
+  width: 250px;
   height: 30px;
   border-radius: 5px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 2px;
 `;
+
+
 export const BoxRate = styled.SafeAreaView`
   flex-direction: row;
   align-items: flex-end;

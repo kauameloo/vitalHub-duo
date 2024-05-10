@@ -15,9 +15,18 @@ import {
 import { userDecodeToken, userLogoutToken } from "../../utils/Auth";
 import api from "../../services/Services";
 import moment from "moment/moment";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
-export const PatientProfile = ({ navigation }) => {
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+import { ButtonCamera, ImageView } from "./Style";
+
+
+
+
+
+export const PatientProfile = ({ navigation, route }) => {
+
   const [cep, setCep] = useState("");
   const [logradouro, setLogradouro] = useState("");
   const [cidade, setCidade] = useState("");
@@ -26,6 +35,12 @@ export const PatientProfile = ({ navigation }) => {
   const [editable, setEditable] = useState(false);
   const [token, setToken] = useState({});
   const [pacienteData, setPacienteData] = useState({});
+
+
+  const [photo, setPhoto] = useState(null)
+
+
+  //USEEFFECT PRINCIPAL
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,8 +51,10 @@ export const PatientProfile = ({ navigation }) => {
           const response = await api.get(
             `/Pacientes/BuscarPorId?id=${userToken.idUsuario}`
           );
-          const { endereco, dataNascimento, cpf } = response.data;
+          const { endereco, dataNascimento, cpf, foto } = response.data;
           setPacienteData(response.data);
+          console.log("Azulllll");
+          setPhoto(response.data.idNavigation.foto)
           setLogradouro(endereco.logradouro);
           setCidade(endereco.cidade);
           setDataNascimento(dataNascimento);
@@ -55,6 +72,55 @@ export const PatientProfile = ({ navigation }) => {
 
     fetchData();
   }, []);
+
+  //USEEFFECT FOTO DE PERFIL
+
+  useEffect(() => {
+
+    console.log(route);
+
+    if (route.params != null ) {
+      console.log(route.params);
+      AlterarFotoPerfil()
+    }
+
+
+  }, [route.params])
+
+  useEffect(() => {
+  }, [photo])
+
+  //FUNCAO PARA ALTERAR A IMAGEM DE PERFIL
+
+  async function AlterarFotoPerfil() {
+
+    const userToken = await userDecodeToken();
+
+    console.log("asasasasasasas", route.params);
+    console.log(`/Usuario/AlterarFotoPerfil?id=${userToken.idUsuario}`);
+
+    const formData = new FormData();
+
+    formData.append('Arquivo',{
+      uri : route.params.photoUri ,
+      name : `image.${ route.params.photoUri.split(".")[1] }`,
+      type : `image/${ route.params.photoUri.split(".")[1] }`
+    });
+
+    
+    await api.put(`/Usuario/AlterarFotoPerfil?id=${userToken.idUsuario}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+
+    }).then( response => {
+      console.log(response);
+      setPhoto(route.params.photoUri)
+    }).catch( error => {
+      console.log(error);
+    })
+  }
+
 
   const handleLogout = () => {
     userLogoutToken();
@@ -84,7 +150,7 @@ export const PatientProfile = ({ navigation }) => {
   const handleSave = async () => {
     try {
       await api.put(
-        `/Pacientes/AtualizarDados?id=${token.idUsuario}`,
+        `/Pacientes?idUsuario=${token.idUsuario}`,
         {
           logradouro: logradouro,
           cep: cep,
@@ -106,26 +172,36 @@ export const PatientProfile = ({ navigation }) => {
       setCidade(cidade); // Atualize o estado com a nova cidade
       console.log(logradouro, cep, cidade);
     } catch (error) {
-      console.error("Erro ao atualizar dados do paciente:", error);
+      console.error("Erro ao atualizar paciente:", error);
+      Alert.alert("Erro", "Falha ao atualizar os dados.");
     }
   };
 
   return (
     <ScrollContainer>
       <Container>
-        <ImagemPerfilPaciente
-          source={require("../../assets/LimaCorinthians.png")}
-        />
+
+        <ImageView>
+          
+          <ImagemPerfilPaciente
+            // source={require("../../assets/LimaCorinthians.png")}
+            source={{uri: photo}}
+          />
+
+          <ButtonCamera onPress={() => { navigation.navigate("PatientCamera") }}>
+            <MaterialCommunityIcons name="camera-plus" size={20} color={"#fbfbfb"} />
+          </ButtonCamera>
+        </ImageView>
+
         <TitleProfile>{token.name}</TitleProfile>
         <DescriptionPassword description={token.email} />
-
         <InputBox
           placeholderTextColor="#A1A1A1"
           textLabel="Data de nascimento:"
           placeholder="Ex. 04/05/1999"
           keyboardType="numeric"
           fieldValue={moment(dataNascimento).format("DD/MM/YYYY")}
-          editable={editable}
+          editable={false}
           onChangeText={setDataNascimento}
           fieldWidth={90}
         />
@@ -149,9 +225,9 @@ export const PatientProfile = ({ navigation }) => {
           fieldWidth={90}
         />
 
-        <Text>{cep}</Text>
+        {/* <Text>{cep}</Text>
         <Text>{cidade}</Text>
-        <Text>{logradouro}</Text>
+        <Text>{logradouro}</Text> */}
 
         <ContainerCepCidade>
           <InputBox

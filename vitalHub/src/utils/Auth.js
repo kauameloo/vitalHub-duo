@@ -13,7 +13,7 @@ if (!global.btoa) {
 }
 
 export const userDecodeToken = async () => {
-  const token = await AsyncStorage.getItem("token");
+  const token = (await AsyncStorage.getItem("token"));
 
   if (token === null) {
     return null;
@@ -29,6 +29,7 @@ export const userDecodeToken = async () => {
     email: decoded.email,
     token: token,
   };
+  
 };
 export const userLogoutToken = async () => {
   const token = await AsyncStorage.removeItem("token");
