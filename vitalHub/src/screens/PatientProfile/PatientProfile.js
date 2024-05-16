@@ -17,16 +17,11 @@ import api from "../../services/Services";
 import moment from "moment/moment";
 import { Text, View } from "react-native";
 
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { ButtonCamera, ImageView } from "./Style";
 
-
-
-
-
 export const PatientProfile = ({ navigation, route }) => {
-
   const [cep, setCep] = useState("");
   const [logradouro, setLogradouro] = useState("");
   const [cidade, setCidade] = useState("");
@@ -36,9 +31,7 @@ export const PatientProfile = ({ navigation, route }) => {
   const [token, setToken] = useState({});
   const [pacienteData, setPacienteData] = useState({});
 
-
-  const [photo, setPhoto] = useState(null)
-
+  const [photo, setPhoto] = useState(null);
 
   //USEEFFECT PRINCIPAL
 
@@ -54,7 +47,7 @@ export const PatientProfile = ({ navigation, route }) => {
           const { endereco, dataNascimento, cpf, foto } = response.data;
           setPacienteData(response.data);
           console.log("Azulllll");
-          setPhoto(response.data.idNavigation.foto)
+          setPhoto(response.data.idNavigation.foto);
           setLogradouro(endereco.logradouro);
           setCidade(endereco.cidade);
           setDataNascimento(dataNascimento);
@@ -76,24 +69,19 @@ export const PatientProfile = ({ navigation, route }) => {
   //USEEFFECT FOTO DE PERFIL
 
   useEffect(() => {
-
     console.log(route);
 
-    if (route.params != null ) {
+    if (route.params != null) {
       console.log(route.params);
-      AlterarFotoPerfil()
+      AlterarFotoPerfil();
     }
+  }, [route.params]);
 
-
-  }, [route.params])
-
-  useEffect(() => {
-  }, [photo])
+  useEffect(() => {}, [photo]);
 
   //FUNCAO PARA ALTERAR A IMAGEM DE PERFIL
 
   async function AlterarFotoPerfil() {
-
     const userToken = await userDecodeToken();
 
     console.log("asasasasasasas", route.params);
@@ -101,26 +89,26 @@ export const PatientProfile = ({ navigation, route }) => {
 
     const formData = new FormData();
 
-    formData.append('Arquivo',{
-      uri : route.params.photoUri ,
-      name : `image.${ route.params.photoUri.split(".")[1] }`,
-      type : `image/${ route.params.photoUri.split(".")[1] }`
+    formData.append("Arquivo", {
+      uri: route.params.photoUri,
+      name: `image.${route.params.photoUri.split(".")[1]}`,
+      type: `image/${route.params.photoUri.split(".")[1]}`,
     });
 
-    
-    await api.put(`/Usuario/AlterarFotoPerfil?id=${userToken.idUsuario}`, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-
-    }).then( response => {
-      console.log(response);
-      setPhoto(route.params.photoUri)
-    }).catch( error => {
-      console.log(error);
-    })
+    await api
+      .put(`/Usuario/AlterarFotoPerfil?id=${userToken.idUsuario}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        setPhoto(route.params.photoUri);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
-
 
   const handleLogout = () => {
     userLogoutToken();
@@ -180,16 +168,22 @@ export const PatientProfile = ({ navigation, route }) => {
   return (
     <ScrollContainer>
       <Container>
-
         <ImageView>
-          
           <ImagemPerfilPaciente
             // source={require("../../assets/LimaCorinthians.png")}
-            source={{uri: photo}}
+            source={{ uri: photo }}
           />
 
-          <ButtonCamera onPress={() => { navigation.navigate("PatientCamera") }}>
-            <MaterialCommunityIcons name="camera-plus" size={20} color={"#fbfbfb"} />
+          <ButtonCamera
+            onPress={() => {
+              navigation.navigate("PatientCamera");
+            }}
+          >
+            <MaterialCommunityIcons
+              name="camera-plus"
+              size={20}
+              color={"#fbfbfb"}
+            />
           </ButtonCamera>
         </ImageView>
 
@@ -211,7 +205,7 @@ export const PatientProfile = ({ navigation, route }) => {
           placeholder="CPF..."
           keyboardType="numeric"
           maxLength={11}
-          fieldValue={`${cpf.slice(0,3)}.${cpf.slice(3,6)}.${cpf.slice(6,9)}`}
+          fieldValue={cpf}
           editable={editable}
           onChangeText={setCpf}
           fieldWidth={90}
@@ -236,7 +230,7 @@ export const PatientProfile = ({ navigation, route }) => {
             placeholder="CEP..."
             maxLength={9}
             keyboardType="numeric"
-            fieldValue={`${cep.slice(0,5)}-${cep.slice(5,9)}`} // Exibir o CEP cadastrado
+            fieldValue={`${cep.slice(0, 5)}-${cep.slice(5, 9)}`} // Exibir o CEP cadastrado
             editable={editable}
             onChangeText={handleCepChange}
             fieldWidth={40}
