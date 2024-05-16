@@ -13,22 +13,20 @@ import api from "../../services/Services";
 import { useEffect, useState } from "react";
 
 export const SelectDoctor = ({ navigation, route }) => {
-
-
   const [medico, setMedico] = useState([]);
 
-  const [selectMedico, setSelectMedico] = useState({})
+  const [selectMedico, setSelectMedico] = useState({});
 
-  const [selected, setSelected] = useState(false)
+  const [selected, setSelected] = useState(false);
 
   function handleContinue() {
     navigation.navigate("SelectDate", {
       agendamento: {
         ...route.params.agendamento,
 
-        ...selectMedico
-      }
-    })
+        ...selectMedico,
+      },
+    });
   }
 
   const ListarMedico = async () => {
@@ -41,7 +39,9 @@ export const SelectDoctor = ({ navigation, route }) => {
     //     console.log(error);
     // })
     try {
-      const returnApi = await api.get(`/Medicos/BuscarPorIdClinica?id=${route.params.agendamento.clinicaId}`)
+      const returnApi = await api.get(
+        `/Medicos/BuscarPorIdClinica?id=${route.params.agendamento.clinicaId}`
+      );
 
       setMedico(returnApi.data);
     } catch (erro) {
@@ -49,16 +49,13 @@ export const SelectDoctor = ({ navigation, route }) => {
     }
   };
 
-
   useEffect(() => {
     ListarMedico();
   }, []);
 
-
   useEffect(() => {
     console.log(route);
   }, [route]);
-
 
   return (
     <Container>
@@ -71,29 +68,37 @@ export const SelectDoctor = ({ navigation, route }) => {
       <TitleSelect>Selecionar Médico</TitleSelect>
 
       {medico == "" ? (
-
         <Text
-          style={{ textAlign: "center", fontSize: 19, marginLeft: 2, marginRight: 2, marginBottom: "120%", marginTop: 10 }}
+          style={{
+            textAlign: "center",
+            fontSize: 19,
+            marginLeft: 2,
+            marginRight: 2,
+            marginBottom: "120%",
+            marginTop: 10,
+          }}
         >
-          Nenhum médico encontrado, tente novamente procurando por outra clínica ou localização !!!
+          Nenhum médico encontrado, tente novamente procurando por outra clínica
+          ou localização !!!
         </Text>
-
       ) : (
         <FlatContainerSelect
           data={medico}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <CardSelectDoctor
-              selecionado={item.id === selectMedico.medicoClinicaId ? true : false}
+              selecionado={
+                item.id === selectMedico.medicoClinicaId ? true : false
+              }
               onPress={() => {
                 setSelectMedico({
                   medicoClinicaId: item.id,
 
                   medicoLabel: item.idNavigation.nome,
 
-                  medicoEspecialidade: item.especialidade.especialidade1
+                  medicoEspecialidade: item.especialidade.especialidade1,
                 }),
-                  setSelected(true)
+                  setSelected(true);
               }}
               doctorArea={item.especialidade.especialidade1}
               name={item.idNavigation.nome}
@@ -104,13 +109,11 @@ export const SelectDoctor = ({ navigation, route }) => {
         />
       )}
 
-
-
-
       <ButtonLargeSelect
         onPress={() => {
-          selected == false ? alert("Selecione um médico para prosseguir !!!") :
-            handleContinue()
+          selected == false
+            ? alert("Selecione um médico para prosseguir !!!")
+            : handleContinue();
         }}
         text={"Continuar"}
       />

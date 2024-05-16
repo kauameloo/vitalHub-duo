@@ -114,13 +114,17 @@ export const AgeTextCard = styled(DescripritionForgot)`
   width: 100px;
 `;
 
+export const CityText = styled(AgeTextCard)`
+  margin-left: 18px;
+`;
+
 export const DoctorArea = styled(DescripritionForgot)`
   color: #8c8a97;
   font-size: 14px;
   height: 20px;
   width: 49%;
   align-self: flex-start;
-  text-align: flex-start;
+  text-align: left;
   /* border: 1px solid black; */
 `;
 
@@ -132,7 +136,7 @@ export const RoutineTextCard = styled(AgeTextCard)`
   margin-top: 6px;
   height: 22px;
   color: #8c8a97;
-  margin-right: 1px
+  margin-right: 1px;
 `;
 
 export const HourText = styled.Text`
@@ -177,7 +181,7 @@ export const SmallDescriptionModal2 = styled(DescripritionForgot)`
   align-self: flex-start;
   color: #5f5c6b;
   width: 100%;
-  text-align: none;
+  text-align: left;
   margin-bottom: 0px;
 `;
 
@@ -196,4 +200,13 @@ export const TextSplash = styled.Text`
   font-size: 18px;
   text-align: center;
   width: 203px;
+`;
+
+export const RefazerLessMargin = styled(CancelButton)`
+  /* margin-left: 40px; */
+  margin-top: 2px;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-left: 35px;
+  margin-right: 0px;
 `;

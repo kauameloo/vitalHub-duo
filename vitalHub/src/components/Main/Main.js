@@ -1,5 +1,4 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 
 import { Text } from "react-native";
 import { BarContent, TextBar } from "./StyleMain";
@@ -24,7 +23,7 @@ export const Main = ({ navigation, route }) => {
     const token = await userDecodeToken();
 
     if (token) {
-      console.log(token);
+      // console.log(token)
     }
   }
 
@@ -36,7 +35,11 @@ export const Main = ({ navigation, route }) => {
     <bottomTab.Navigator
       initialRouteName="PatientConsultation"
       screenOptions={({ route }) => ({
-        tabBarStyle: { backgroundColor: "#FFFFFF", height: 60, paddingTop: 3 },
+        tabBarStyle: {
+          backgroundColor: "#FFFFFF",
+          height: 60,
+          paddingTop: 3,
+        },
         // tabBarInactiveBackgroundColor: "transparent",
         tabBarActiveBackgroundColor: "transparent",
         tabBarShowLabel: false,

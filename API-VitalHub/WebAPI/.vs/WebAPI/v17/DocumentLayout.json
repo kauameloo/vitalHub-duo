@@ -1,54 +1,74 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\utils\\ocr\\ocrservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\utils\\ocr\\ocrservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\repositories\\consultarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\repositories\\consultarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\viewmodels\\exameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\viewmodels\\exameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\controllers\\consultascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\consultascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\controllers\\examecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\examecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\controllers\\medicoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\medicoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\utils\\blobstorage\\azureblobstoragehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\utils\\blobstorage\\azureblobstoragehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\controllers\\sendemailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\sendemailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\contexts\\vitalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\contexts\\vitalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\api-vitalhubb\\webapi\\webapi\\controllers\\recuperarsenhacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\contexts\\vitalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\contexts\\vitalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\controllers\\sendemailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\sendemailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\controllers\\recuperarsenhacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\recuperarsenhacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\utils\\ocr\\ocrservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\utils\\ocr\\ocrservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\controllers\\medicoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\medicoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\viewmodels\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\viewmodels\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\viewmodels\\exameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\viewmodels\\exameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\controllers\\examecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\examecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\utils\\blobstorage\\azureblobstoragehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\utils\\blobstorage\\azureblobstoragehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|c:\\users\\kaua-\\onedrive\\\u00E1rea de trabalho\\dev\\senai\\vitalhub-duo\\api-vitalhub\\webapi\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{23BAD9E5-81FE-42EB-979F-0F9CF775B74C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,90 +78,138 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Program.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Program.cs",
-              "RelativeToolTip": "WebAPI\\Program.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAAAHcAAAApAAAA",
+              "DocumentIndex": 0,
+              "Title": "ConsultaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Repositories\\ConsultaRepository.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Repositories\\ConsultaRepository.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Repositories\\ConsultaRepository.cs",
+              "RelativeToolTip": "WebAPI\\Repositories\\ConsultaRepository.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAuwE4AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:23:39.435Z",
+              "WhenOpened": "2024-05-16T03:44:14.179Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ExameController.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\ExameController.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Controllers\\ExameController.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\ExameController.cs",
-              "RelativeToolTip": "WebAPI\\Controllers\\ExameController.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAIwD4AAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:05:42.658Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ExameViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\ViewModels\\ExameViewModel.cs",
-              "RelativeDocumentMoniker": "WebAPI\\ViewModels\\ExameViewModel.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\ViewModels\\ExameViewModel.cs",
-              "RelativeToolTip": "WebAPI\\ViewModels\\ExameViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAgAAAA",
+              "Title": "ConsultasController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\ConsultasController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\ConsultasController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\ConsultasController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\ConsultasController.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAmwGUAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:01:24.279Z",
+              "WhenOpened": "2024-04-24T23:16:17.49Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OcrService.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Utils\\OCR\\OcrService.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Utils\\OCR\\OcrService.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Utils\\OCR\\OcrService.cs",
-              "RelativeToolTip": "WebAPI\\Utils\\OCR\\OcrService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:33:57.716Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PacientesController.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\PacientesController.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Controllers\\PacientesController.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\PacientesController.cs",
-              "RelativeToolTip": "WebAPI\\Controllers\\PacientesController.cs",
-              "ViewState": "AQIAAE8AAAAAAAAAAAAkwGQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:32:38.977Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "AzureBlobStorageHelper.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Utils\\BlobStorage\\AzureBlobStorageHelper.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Utils\\BlobStorage\\AzureBlobStorageHelper.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Utils\\BlobStorage\\AzureBlobStorageHelper.cs",
-              "RelativeToolTip": "WebAPI\\Utils\\BlobStorage\\AzureBlobStorageHelper.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwCcAAAB5AAAA",
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAqwEgAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:31:43.816Z"
+              "WhenOpened": "2024-04-23T17:35:50.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VitalContext.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Contexts\\VitalContext.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Contexts\\VitalContext.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Contexts\\VitalContext.cs",
+              "RelativeToolTip": "WebAPI\\Contexts\\VitalContext.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAIwC8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T17:30:54.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RecuperarSenhaController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\RecuperarSenhaController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\RecuperarSenhaController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\RecuperarSenhaController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\RecuperarSenhaController.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAgwBAAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T17:30:03.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "WebAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "WebAPI\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-15T17:30:32.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SendEmailController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\SendEmailController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\SendEmailController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\SendEmailController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\SendEmailController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABoAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T17:30:03.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OcrService.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Utils\\OCR\\OcrService.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Utils\\OCR\\OcrService.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Utils\\OCR\\OcrService.cs",
+              "RelativeToolTip": "WebAPI\\Utils\\OCR\\OcrService.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAA1wCwAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T17:33:57.716Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAC8AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T23:16:21.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Program.cs",
+              "RelativeToolTip": "WebAPI\\Program.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAawJ8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T18:23:39.435Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "WebAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\appsettings.json",
               "RelativeToolTip": "WebAPI\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -149,63 +217,75 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "VitalContext.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Contexts\\VitalContext.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Contexts\\VitalContext.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Contexts\\VitalContext.cs",
-              "RelativeToolTip": "WebAPI\\Contexts\\VitalContext.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAA2wC8AAAAAAAAA",
+              "DocumentIndex": 15,
+              "Title": "AzureBlobStorageHelper.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Utils\\BlobStorage\\AzureBlobStorageHelper.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Utils\\BlobStorage\\AzureBlobStorageHelper.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Utils\\BlobStorage\\AzureBlobStorageHelper.cs",
+              "RelativeToolTip": "WebAPI\\Utils\\BlobStorage\\AzureBlobStorageHelper.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwCcAAAB5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:30:54.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "WebAPI\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Properties\\launchSettings.json",
-              "RelativeToolTip": "WebAPI\\Properties\\launchSettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-15T17:30:32.692Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MedicosController.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\MedicosController.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Controllers\\MedicosController.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\MedicosController.cs",
-              "RelativeToolTip": "WebAPI\\Controllers\\MedicosController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAAEMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:30:03.507Z"
+              "WhenOpened": "2024-04-15T17:31:43.816Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "RecuperarSenhaController.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\RecuperarSenhaController.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Controllers\\RecuperarSenhaController.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\RecuperarSenhaController.cs",
-              "RelativeToolTip": "WebAPI\\Controllers\\RecuperarSenhaController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABWAAAA",
+              "Title": "PacientesController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\PacientesController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\PacientesController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\PacientesController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\PacientesController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAIAzwB8AAABrAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:30:03.476Z"
+              "WhenOpened": "2024-04-15T17:32:38.977Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SendEmailController.cs",
-              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\SendEmailController.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Controllers\\SendEmailController.cs",
-              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\API-VitalHubb\\WebAPI\\WebAPI\\Controllers\\SendEmailController.cs",
-              "RelativeToolTip": "WebAPI\\Controllers\\SendEmailController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "DocumentIndex": 10,
+              "Title": "MedicosController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\MedicosController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\MedicosController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\MedicosController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\MedicosController.cs",
+              "ViewState": "AQIAAIIAAAAAAAAAAAAAAIMAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-15T17:30:03.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UsuarioViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\ViewModels\\UsuarioViewModel.cs",
+              "RelativeDocumentMoniker": "WebAPI\\ViewModels\\UsuarioViewModel.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\ViewModels\\UsuarioViewModel.cs",
+              "RelativeToolTip": "WebAPI\\ViewModels\\UsuarioViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T17:33:17.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ExameViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\ViewModels\\ExameViewModel.cs",
+              "RelativeDocumentMoniker": "WebAPI\\ViewModels\\ExameViewModel.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\ViewModels\\ExameViewModel.cs",
+              "RelativeToolTip": "WebAPI\\ViewModels\\ExameViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T18:01:24.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ExameController.cs",
+              "DocumentMoniker": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\ExameController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\ExameController.cs",
+              "ToolTip": "C:\\Users\\kaua-\\OneDrive\\\u00C1rea de Trabalho\\dev\\SENAI\\vitalHub-duo\\API-VitalHub\\WebAPI\\WebAPI\\Controllers\\ExameController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\ExameController.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAIwD4AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T18:05:42.658Z"
             }
           ]
         }

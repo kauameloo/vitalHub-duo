@@ -5,6 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using WebAPI.Domains;
 using WebAPI.Interfaces;
 using WebAPI.Repositories;
+using WebAPI.Utils.BlobStorage;
 using WebAPI.ViewModels;
 
 namespace WebAPI.Controllers
@@ -45,6 +46,36 @@ namespace WebAPI.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("AlterarFotoPerfil")]
+        public async Task<IActionResult> UploadProfileImage(Guid id,[FromForm] UsuarioViewModel user)
+        {
+            try
+            {
+                Usuario usuarioBuscado = usuarioRepository.BuscarPorId(id);
+                if (usuarioBuscado == null)
+                {
+                    return NotFound();
+                }
+
+                //lógica para o upload de imagem
+                var connectionString = "DefaultEndpointsProtocol=https;AccountName=blobvitalhubdt12;AccountKey=UG+snkKGwGlAYNR347hH+WfDh96JyAKlg8vz9VeO5q4RU1+1sRXhy36I3h52nMXUd3husR/U+ZBv+AStRztXaw==;EndpointSuffix=core.windows.net";
+
+                var containerName = "containervitalhub";
+
+                string fotoUrl = await AzureBlobStorageHelper.UploadImageBlobAsync(user.Arquivo!, connectionString, containerName);
+
+                usuarioBuscado.Foto = fotoUrl;
+
+                usuarioRepository.AtualizarFoto(id, fotoUrl);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+
+                throw;
             }
         }
     }

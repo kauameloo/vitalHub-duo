@@ -1,95 +1,92 @@
-import { StatusBar } from "react-native"
-import { BoxInputSelectLabel, Container } from "../../components/Container/StyleContainer"
-import { TitleSelect } from "../../components/Title/StyleTitle"
-import CalendarComponent from "../../components/CalendarComponent/CalendarComponent"
-import { InputSelect } from "../../components/Input/Input"
-import { Label, LabelSelect } from "../../components/Label/Label"
-import { ButtonLarge, ButtonNormal } from "../../components/Button/Button"
-import { CardCancelLess } from "../../components/Descriptions/Descriptions"
-import { BoxButtons } from "../../components/Button/StyleButton"
-import { useEffect, useState } from "react"
-import { ConfirmAppointmentModal } from "../../components/ConfirmAppointmentModal/ConfirmAppointmentModal"
-
+import { StatusBar } from "react-native";
+import {
+  BoxInputSelectLabel,
+  Container,
+} from "../../components/Container/StyleContainer";
+import { TitleSelect } from "../../components/Title/StyleTitle";
+import CalendarComponent from "../../components/CalendarComponent/CalendarComponent";
+import { InputSelect } from "../../components/Input/Input";
+import { Label, LabelSelect } from "../../components/Label/Label";
+import { ButtonLarge, ButtonNormal } from "../../components/Button/Button";
+import { CardCancelLess } from "../../components/Descriptions/Descriptions";
+import { BoxButtons } from "../../components/Button/StyleButton";
+import { useEffect, useState } from "react";
+import { ConfirmAppointmentModal } from "../../components/ConfirmAppointmentModal/ConfirmAppointmentModal";
 
 export const SelectDate = ({ navigation, route }) => {
+  const [showModal, setShowModal] = useState(false);
 
-    const [showModal, setShowModal] = useState(false);
+  const [agendamento, setAgendamento] = useState({
+    dataSelecionada: "",
+  });
 
-    const [agendamento, setAgendamento] = useState(
-        {
-            dataSelecionada : ""
-        }
-    )
+  const [dataSelecionada, setDataSelecionada] = useState("");
 
-    const [dataSelecionada, setDataSelecionada] = useState("")
+  const [horaSelecionada, setHoraSelecionada] = useState("");
 
-    const [horaSelecionada, setHoraSelecionada] = useState("")
+  function handleContinue() {
+    setAgendamento({
+      ...route.params.agendamento,
 
-    function handleContinue() {
+      dataConsulta: `${dataSelecionada} ${horaSelecionada}`,
+    });
 
-        setAgendamento({
-            ...route.params.agendamento,
+    setShowModal(true);
+  }
 
-            dataConsulta: `${dataSelecionada} ${horaSelecionada}`,
-        });
+  useEffect(() => {
+    console.log(route);
+  }, [route]);
 
-        setShowModal(true)
-    }
+  useEffect(() => {
+    console.log(dataSelecionada);
+  }, [dataSelecionada]);
 
-    useEffect(() => {
-        console.log(route);
-    }, [route]);
+  return (
+    <Container>
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle="dark-content"
+      />
 
-    useEffect(() => {
-        console.log(dataSelecionada);
-    }, [dataSelecionada]);
+      <TitleSelect>Selecionar Data</TitleSelect>
 
+      <CalendarComponent
+        setDataSelecionada={setDataSelecionada}
+        dataSelecionada={dataSelecionada}
+      />
 
-    return (
+      <BoxInputSelectLabel>
+        <LabelSelect textLabel={"Selecione um horário disponível"} />
 
-        <Container>
+        <InputSelect setHoraSelecionada={setHoraSelecionada} />
+      </BoxInputSelectLabel>
 
-            <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+      <BoxButtons>
+        <ButtonLarge
+          onPress={() =>
+            horaSelecionada && horaSelecionada != null
+              ? handleContinue()
+              : alert("Preencha todos os campos para prosseguir !!!")
+          }
+          text={"Confirmar"}
+        />
 
-            <TitleSelect>Selecionar Data</TitleSelect>
+        <CardCancelLess
+          onPressCancel={() => {
+            navigation.replace("Main");
+          }}
+          text={"Cancelar"}
+        />
+      </BoxButtons>
 
-            <CalendarComponent
-                setDataSelecionada={setDataSelecionada}
-                dataSelecionada={dataSelecionada}
-            />
-
-            <BoxInputSelectLabel>
-
-                <LabelSelect textLabel={'Selecione um horário disponível'} />
-
-                <InputSelect
-                    setHoraSelecionada={setHoraSelecionada}
-                />
-
-            </BoxInputSelectLabel>
-
-
-            <BoxButtons>
-                <ButtonLarge onPress={
-                    () => horaSelecionada && horaSelecionada != null ? handleContinue() : alert("Preencha todos os campos para prosseguir !!!")
-                } 
-                    text={'Confirmar'}
-                />
-
-                <CardCancelLess onPressCancel={() => {
-                    navigation.replace("Main");
-                }} text={"Cancelar"} />
-            </BoxButtons>
-
-            <ConfirmAppointmentModal
-                agendamento={agendamento}
-                navigation={navigation}
-                visible={showModal}
-                setShowModal={setShowModal}
-            />
-
-        </Container>
-
-    )
-
-}
+      <ConfirmAppointmentModal
+        agendamento={agendamento}
+        navigation={navigation}
+        visible={showModal}
+        setShowModal={setShowModal}
+      />
+    </Container>
+  );
+};

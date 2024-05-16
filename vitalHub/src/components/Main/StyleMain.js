@@ -13,7 +13,7 @@ export const TextBar = styled.Text`
 // `
 
 export const BarContent = styled.View.attrs({
-  focus: true,
+  focus: true
 })`
   flex-direction: row;
 
@@ -21,11 +21,10 @@ export const BarContent = styled.View.attrs({
   justify-content: center;
   gap: 5px;
 
-  width: 100%;
-  border-radius: 18px;
-  height: 100%;
-  /* margin-top: 5pxss; */
-  /* padding: 9px 12px; */
 
-  background-color: ${(props) => `${props.tabBarActiveBackgroundColor}`};
+  border-radius: 18px;
+  padding: 9px 12px;
+
+  background-color: ${props => `${props.tabBarActiveBackgroundColor}`}
+
 `;

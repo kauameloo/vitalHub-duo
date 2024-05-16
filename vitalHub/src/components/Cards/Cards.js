@@ -46,9 +46,8 @@ export const Card = ({
   navigation,
   dataConsulta,
 }) => {
-  
   const Check = () => {
-    if (status === "Agendada") {
+    if (status === "Agendadas") {
       return (
         <BoxDateCancel>
           <ConsultDate>
@@ -60,7 +59,7 @@ export const Card = ({
           <CardCancel onPressCancel={onPressCancel} text={"Cancelar"} />
         </BoxDateCancel>
       );
-    } else if (status === "Realizada") {
+    } else if (status === "Realizadas") {
       return (
         <BoxDateCancel>
           <ConsultDateGray>
@@ -75,7 +74,7 @@ export const Card = ({
           />
         </BoxDateCancel>
       );
-    } else if (status === "Cancelada") {
+    } else if (status === "Canceladas") {
       return (
         <BoxDateCancel>
           <ConsultDateGray>
@@ -126,9 +125,15 @@ export const Card = ({
   );
 };
 
-export const CardSelectDoctor = ({ url, name, doctorArea, onPress, selecionado = false }) => {
+export const CardSelectDoctor = ({
+  url,
+  name,
+  doctorArea,
+  onPress,
+  selecionado = false,
+}) => {
   return (
-    <CardContainer onPress={onPress} selecionada={selecionado} >
+    <CardContainer onPress={onPress} selecionada={selecionado}>
       <ImageCard source={{ uri: url }} />
 
       <BoxCard>
@@ -142,20 +147,16 @@ export const CardSelectDoctor = ({ url, name, doctorArea, onPress, selecionado =
   );
 };
 
-
 export const CardSelectClinic = ({
   name,
   localization,
   onPress,
-  selecionado = false
+  selecionado = false,
   //  rate,
   //  openTime
 }) => {
   return (
-    <CardContainerClinic
-      onPress={onPress}
-      selecionada={selecionado} 
-    >
+    <CardContainerClinic onPress={onPress} selecionada={selecionado}>
       <BoxCard>
         <BoxTextClinicCard>
           <NameCardClinic>{name}</NameCardClinic>

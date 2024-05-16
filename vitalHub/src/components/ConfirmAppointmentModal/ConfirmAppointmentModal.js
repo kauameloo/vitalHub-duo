@@ -51,12 +51,12 @@ export const ConfirmAppointmentModal = ({
 
         pacienteId: profile.idUsuario,
 
-        situacaoId: "E2D4051A-33D5-4AE1-809F-357BD6AE3412",
+        situacaoId: "A2EF53F1-DA6B-45D2-9EF4-4EFE71801D07",
       })
       .then(
         setShowModal(false),
 
-        navigation.navigate("Main")
+        navigation.replace("Main")
       )
       .catch((error) => {
         console.log(error);

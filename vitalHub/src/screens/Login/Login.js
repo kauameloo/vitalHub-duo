@@ -17,8 +17,8 @@ import { ButtonText } from "../../components/ButtonText/StyleButtonText";
 import { Button } from "../../components/Button/StyleButton";
 
 export const Login = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState("kaua-rodrigues2005@hotmail.com");
+  const [senha, setSenha] = useState("duda123");
   // const [email, setEmail] = useState("thigas@email.com");
   // const [senha, setSenha] = useState("10203040");
   const [loading, setLoading] = useState(false);
@@ -47,7 +47,7 @@ export const Login = ({ navigation }) => {
       })
       .catch((error) => {
         console.log(error);
-        alert("Senha ou email incorretos !!!");
+        alert("Senha ou email incorretos!");
         setLoading(false);
       });
   }
@@ -89,7 +89,7 @@ export const Login = ({ navigation }) => {
       </Button>
 
       <ButtonGoogle
-        onPress={() => navigation.replace("DoctorMain")}
+        // onPress={() => navigation.replace("DoctorMain")}
         text={"Entrar com Google"}
       />
 
