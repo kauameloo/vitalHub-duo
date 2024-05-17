@@ -182,7 +182,7 @@ export const DoctorConsultation = ({ navigation }) => {
             <Card
               navigation={navigation}
               dataConsulta={item.dataConsulta}
-              hour={"14:00"}
+              hour={moment(item.dataConsulta).format("HH:mm")}
               name={item.paciente.idNavigation.nome}
               age={`${
                 moment().year() -

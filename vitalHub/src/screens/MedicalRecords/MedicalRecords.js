@@ -37,6 +37,8 @@ export const MedicalRecords = ({ navigation, route }) => {
 
   const [diagnostico, setDiagnostico] = useState("");
 
+  const [medicamento, setMedicamento] = useState("");
+
   async function SituationUpdate() {
     console.log(consulta);
     console.log("idConsulta:", consulta.id);
@@ -61,6 +63,7 @@ export const MedicalRecords = ({ navigation, route }) => {
           consultaId: consulta.id,
           descricao: descricao,
           diagnostico: diagnostico,
+          medicamento: medicamento,
         }
       )
       .then((response) => {
@@ -126,7 +129,9 @@ export const MedicalRecords = ({ navigation, route }) => {
               fieldHeight={350}
               placeholderTextColor={"#34898F"}
               textLabel={"Prescrição médica"}
-              placeholder={"Prescriçao médica"}
+              placeholder={medicamento ? medicamento : "Prescrição médica"}
+              fieldValue={medicamento}
+              onChangeText={(x) => setMedicamento(x)}
               editable={editable}
               fieldWidth={90}
             />

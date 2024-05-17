@@ -16,9 +16,7 @@ import { userDecodeToken, userLogoutToken } from "../../utils/Auth";
 import api from "../../services/Services";
 import moment from "moment/moment";
 import { Text, View } from "react-native";
-
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
 import { ButtonCamera, ImageView } from "./Style";
 
 export const PatientProfile = ({ navigation, route }) => {
@@ -30,10 +28,8 @@ export const PatientProfile = ({ navigation, route }) => {
   const [editable, setEditable] = useState(false);
   const [token, setToken] = useState({});
   const [pacienteData, setPacienteData] = useState({});
-
   const [photo, setPhoto] = useState(null);
-
-  //USEEFFECT PRINCIPAL
+  const [birthDateInput, setBirthDateInput] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,15 +42,13 @@ export const PatientProfile = ({ navigation, route }) => {
           );
           const { endereco, dataNascimento, cpf, foto } = response.data;
           setPacienteData(response.data);
-          console.log("Azulllll");
           setPhoto(response.data.idNavigation.foto);
           setLogradouro(endereco.logradouro);
           setCidade(endereco.cidade);
           setDataNascimento(dataNascimento);
+          setBirthDateInput(moment(dataNascimento).format("DD/MM/YYYY"));
           setCpf(cpf);
-          // Definir o estado `cep` com o CEP do paciente
           setCep(endereco.cep);
-          console.log(endereco);
         } catch (error) {
           console.error("Erro ao buscar dados do paciente:", error);
         }
@@ -62,33 +56,20 @@ export const PatientProfile = ({ navigation, route }) => {
         console.error("Token is not valid or idUsuario is not present.");
       }
     };
-
     fetchData();
   }, []);
 
-  //USEEFFECT FOTO DE PERFIL
-
   useEffect(() => {
-    console.log(route);
-
     if (route.params != null) {
-      console.log(route.params);
       AlterarFotoPerfil();
     }
   }, [route.params]);
 
   useEffect(() => {}, [photo]);
 
-  //FUNCAO PARA ALTERAR A IMAGEM DE PERFIL
-
   async function AlterarFotoPerfil() {
     const userToken = await userDecodeToken();
-
-    console.log("asasasasasasas", route.params);
-    console.log(`/Usuario/AlterarFotoPerfil?id=${userToken.idUsuario}`);
-
     const formData = new FormData();
-
     formData.append("Arquivo", {
       uri: route.params.photoUri,
       name: `image.${route.params.photoUri.split(".")[1]}`,
@@ -102,7 +83,6 @@ export const PatientProfile = ({ navigation, route }) => {
         },
       })
       .then((response) => {
-        console.log(response);
         setPhoto(route.params.photoUri);
       })
       .catch((error) => {
@@ -143,7 +123,7 @@ export const PatientProfile = ({ navigation, route }) => {
           logradouro: logradouro,
           cep: cep,
           cidade: cidade,
-          dataNascimento: dataNascimento,
+          dataNascimento: moment(birthDateInput, "DD/MM/YYYY").toISOString(),
           cpf: cpf,
         },
         {
@@ -155,25 +135,32 @@ export const PatientProfile = ({ navigation, route }) => {
 
       console.log("Dados do paciente atualizados com sucesso.");
       setEditable(false);
-      setLogradouro(logradouro); // Atualize o estado com o novo logradouro
-      setCep(cep); // Atualize o estado com o novo CEP
-      setCidade(cidade); // Atualize o estado com a nova cidade
-      console.log(logradouro, cep, cidade);
     } catch (error) {
       console.error("Erro ao atualizar paciente:", error);
       Alert.alert("Erro", "Falha ao atualizar os dados.");
     }
   };
 
+  const handleNascimentoChange = (text) => {
+    let formattedText = text.replace(/\D/g, ""); // Remove all non-numeric characters
+
+    if (formattedText.length > 2) {
+      formattedText =
+        formattedText.substring(0, 2) + "/" + formattedText.substring(2);
+    }
+    if (formattedText.length > 5) {
+      formattedText =
+        formattedText.substring(0, 5) + "/" + formattedText.substring(5, 9);
+    }
+
+    setBirthDateInput(formattedText);
+  };
+
   return (
     <ScrollContainer>
       <Container>
         <ImageView>
-          <ImagemPerfilPaciente
-            // source={require("../../assets/LimaCorinthians.png")}
-            source={{ uri: photo }}
-          />
-
+          <ImagemPerfilPaciente source={{ uri: photo }} />
           <ButtonCamera
             onPress={() => {
               navigation.navigate("PatientCamera");
@@ -186,7 +173,6 @@ export const PatientProfile = ({ navigation, route }) => {
             />
           </ButtonCamera>
         </ImageView>
-
         <TitleProfile>{token.name}</TitleProfile>
         <DescriptionPassword description={token.email} />
         <InputBox
@@ -194,9 +180,9 @@ export const PatientProfile = ({ navigation, route }) => {
           textLabel="Data de nascimento:"
           placeholder="Ex. 04/05/1999"
           keyboardType="numeric"
-          fieldValue={moment(dataNascimento).format("DD/MM/YYYY")}
-          editable={false}
-          onChangeText={setDataNascimento}
+          fieldValue={birthDateInput}
+          editable={editable}
+          onChangeText={handleNascimentoChange}
           fieldWidth={90}
         />
         <InputBox
@@ -218,11 +204,6 @@ export const PatientProfile = ({ navigation, route }) => {
           fieldValue={logradouro}
           fieldWidth={90}
         />
-
-        {/* <Text>{cep}</Text>
-        <Text>{cidade}</Text>
-        <Text>{logradouro}</Text> */}
-
         <ContainerCepCidade>
           <InputBox
             placeholderTextColor="#A1A1A1"
@@ -230,7 +211,7 @@ export const PatientProfile = ({ navigation, route }) => {
             placeholder="CEP..."
             maxLength={9}
             keyboardType="numeric"
-            fieldValue={`${cep.slice(0, 5)}-${cep.slice(5, 9)}`} // Exibir o CEP cadastrado
+            fieldValue={`${cep.slice(0, 5)}-${cep.slice(5, 9)}`}
             editable={editable}
             onChangeText={handleCepChange}
             fieldWidth={40}
@@ -244,13 +225,11 @@ export const PatientProfile = ({ navigation, route }) => {
             fieldWidth={40}
           />
         </ContainerCepCidade>
-
         {editable ? (
           <ButtonLarge text="Salvar" onPress={handleSave} />
         ) : (
           <ButtonLarge text="Editar" onPress={() => setEditable(true)} />
         )}
-
         <BlockedSmallButton onPress={handleLogout} text="Sair do app" />
       </Container>
     </ScrollContainer>

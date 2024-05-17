@@ -166,7 +166,11 @@ export const ViewPrescription = ({ navigation, route }) => {
               editable={false}
               fieldWidth={90}
               multiline={true}
-              fieldValue={consultaSelecionada.receita.medicamento}
+              fieldValue={
+                consultaSelecionada.receita.medicamento === null
+                  ? "Não informado"
+                  : consultaSelecionada.receita.medicamento
+              }
             />
 
             <BoxViewImageImport>
